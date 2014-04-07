@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe User do
+
+  before :each do
+    User.create(email: 'cvetter34@gmail.com', password: '1234', password_confirmation: '1234')
+  end
+
   it "is valid with an email" do
     user = User.new(email: 'cvetter34@gmail.com', password: '1234', password_confirmation: '1234')
     user.save
@@ -52,7 +57,12 @@ describe User do
     end
 
     describe "authenticate" do
-      it "authenticate correctly"
+      it "authenticate correctly" do
+        user = User.find_by email: 'cvetter34@gmail.com'
+        auth_result = user.authenticate '1234'
+        result = user.fish == BCrypt::Engine.hash_secret('1234', user.salt)
+        expect(auth_result).to eq result
+      end
     end
   end
 
@@ -63,7 +73,12 @@ describe User do
 
     context "password is not blank" do
       context "password with confirmation matches" do
-        it "should have the fish and salt changed"
+        it "should have the fish and salt changed" do
+          @user = User.find_by email: 'cvetter34@gmail.com'
+          @user.set_password_reset
+          expect(@user.code).to_not be_nil
+          expect(@user.expires_at).to_not be_nil
+        end
 
         it "should have code and expires_at set to nil"
       end
@@ -84,7 +99,13 @@ describe User do
 
   describe "Password is encrypted before save" do
     context "password is present" do
-      it "should have value in salt and fish"
+      it "should have value in salt and fish" do
+        @user = User.new email: 'cvetter34@gmail.com'
+        @user.password = '1234'
+        @user.send(:encrypt_password)
+        expect(@user.salt).to_not be_nil
+        expect(@user.fish).to_not be_nil
+      end
 
       context "encrypted password is not the same as plain" do
         it "should have values of password and fish differently"
