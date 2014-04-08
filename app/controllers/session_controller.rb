@@ -18,6 +18,8 @@ class SessionController < ApplicationController
 
   def destroy
     log_user_out
+    render text: "Log the user out."
+    redirect_to login_url, notice: "You've successfully logged out."
   end
 
   private
