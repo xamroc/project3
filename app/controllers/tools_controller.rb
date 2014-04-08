@@ -2,8 +2,7 @@ require 'pry'
 
 class ToolsController < ApplicationController
 
-  before_action :is_authenticated?, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  # before_action :set_tool, only: [:show, :edit, :update, :destroy]
 
   def index
     @tools = Tool.all
@@ -31,11 +30,11 @@ class ToolsController < ApplicationController
   private
 
     def tool_params
-      params.require(:tool).permit(:name, :category, :description, :photos, :price, :tag)
+      params.require(:tool).permit(:name, :category, :description, :photos, :price, :tag, :availability)
     end
 
-    def set_message
-    @tool = Tool.find(params[:id])
-  end
+    def set_tool
+      @tool = Tool.find(params[:id])
+    end
 
 end
