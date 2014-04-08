@@ -13,9 +13,6 @@ class SessionController < ApplicationController
     render :new
   end
 
-  def show
-  end
-
   def destroy
     log_user_out
     render text: "Log the user out."
