@@ -4,6 +4,5 @@ Project3::Application.routes.draw do
 
   resources :session
   resources :site
-
-
+  resources :tools
 end
