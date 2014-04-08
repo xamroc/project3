@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
   end
 
   def log_user_in(user, notice = nil)
-      session[:user_id] = user.id
-      redirect_to root_url, notice: "You are logged in."
+    session[:user_id] = user.id
+    redirect_to root_url, notice: "You are logged in."
   end
 
   def log_user_out
