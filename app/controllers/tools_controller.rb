@@ -2,7 +2,7 @@ require 'pry'
 
 class ToolsController < ApplicationController
 
-  # before_action :set_tool, only: [:show, :edit, :update, :destroy]
+  before_action :set_tool, only: [:show, :edit, :update, :destroy]
 
   def index
     @tools = Tool.all
@@ -13,17 +13,11 @@ class ToolsController < ApplicationController
 
   def create
     @tool = Tool.new(tool_params)
-
-    if @tool.save
-      redirect_to @tool
-    else
-      render 'new'
-    end
-
+    @tool.save
+    redirect_to @tool
   end
 
   def show
-    @tool = Tool.find(params[:id])
   end
 
   def edit

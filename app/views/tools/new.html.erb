@@ -1,16 +1,5 @@
 <div class="row">
   <%= form_for :tool, url: tools_url, method: :post, html: { id: "tool-form" } do |f| %>
-    <% if @tool.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tool.errors.count, "error") %> prohibited
-        this tool from being saved:</h2>
-      <ul>
-      <% @tool.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-    <% end %>
     <fieldset>
       <div class="large-12 columns">
         <%= f.label :name, class: "sr-only" %>
