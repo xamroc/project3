@@ -13,8 +13,13 @@ class ToolsController < ApplicationController
 
   def create
     @tool = Tool.new(tool_params)
-    @tool.save
-    redirect_to @tool
+
+    if @tool.save
+      redirect_to @tool
+    else
+      render 'new'
+    end
+
   end
 
   def show
