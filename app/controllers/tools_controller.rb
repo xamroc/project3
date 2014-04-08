@@ -24,6 +24,11 @@ class ToolsController < ApplicationController
   end
 
   def update
+    if @tool.update(params[:tool].permit(:name, :category, :description, :photos, :price, :tag, :availability))
+      redirect_to @tool
+    else
+      render 'edit'
+    end
   end
 
   private

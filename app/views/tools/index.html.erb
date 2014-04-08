@@ -1,21 +1,23 @@
 <h1>Listing Tools</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Category</th>
-    <th>Description</th>
-    <th>Price</th>
-  </tr>
+Name
+Category
+Description
+Price
+Availability
 
-  <% @tools.each do |tool| %>
-    <tr>
-      <td><%= tool.name %></td>
-      <td><%= tool.category %></td>
-      <td><%= tool.description %></td>
-      <td><%= tool.price %></td>
-    </tr>
-  <% end %>
-</table>
+
+<% @tools.each do |tool| %>
+  <div>
+    <%= tool.name %>
+    <%= tool.category %>
+    <%= tool.description %>
+    <%= tool.price %>
+    <%= tool.availability %>
+    <%= link_to 'Show', tool %>
+  <div>
+<% end %>
+
+
 
 <%= link_to 'Create New Item', new_tool_url %>
