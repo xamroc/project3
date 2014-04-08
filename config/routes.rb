@@ -6,6 +6,10 @@ Project3::Application.routes.draw do
   resources :site
   resources :tools
 
-  get 'login' => 'session#new'
+  get  'register' => 'registration#new', as: :register
+  post 'register' => 'registration#create'
+
+  get  'login' => 'session#new'
   post 'login' => 'session#create'
+  get 'logout' => 'session#destroy' #TODO: remove before deployment
 end

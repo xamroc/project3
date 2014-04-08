@@ -1,0 +1,12 @@
+<%= form_for :user, url: register_url, method: :post, html: { id: "registrationform" } do |f| %>
+  <fieldset>
+    <legend>Please sign in</legend>
+        <%= f.label :email %>
+        <%= f.text_field :email, placeholder: "Email address" %>
+        <%= f.label :password %>
+        <%= f.password_field :password, placeholder: "Password" %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
+        <%= f.submit "Register" %>
+  </fieldset>
+<% end %>
