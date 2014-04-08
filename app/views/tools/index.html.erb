@@ -1,23 +1,21 @@
-<h1>Listing Tools</h1>
+<h1>Tools Listing</h1>
 
-Name
-Category
-Description
-Price
-Availability
-
-
+<div class="row">
+  <div class="small-3 columns">Name</div>
+  <div class="small-3 columns">Category</div>
+  <div class="small-3 columns">Price</div>
+  <div class="small-3 columns">Details</div>
+</div>
+<hr>
 <% @tools.each do |tool| %>
-  <div>
-    <%= tool.name %>
-    <%= tool.category %>
-    <%= tool.description %>
-    <%= tool.price %>
-    <%= tool.availability %>
-    <%= link_to 'Show', tool %>
-  <div>
+  <div class="row">
+    <div class="small-3 columns"><%= tool.name %></div>
+    <div class="small-3 columns"><%= tool.category %></div>
+    <div class="small-3 columns"><%= tool.price %></div>
+    <div class="small-3 columns"><%= link_to 'Show', tool %></div>
+  </div>
 <% end %>
-
+<hr>
 
 
 <%= link_to 'Create New Item', new_tool_url %>

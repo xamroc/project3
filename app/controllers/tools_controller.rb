@@ -27,7 +27,7 @@ class ToolsController < ApplicationController
     if @tool.update(params[:tool].permit(:name, :category, :description, :photos, :price, :tag, :availability))
       redirect_to @tool
     else
-      render 'edit'
+      render text: 'edit failed'
     end
   end
 
