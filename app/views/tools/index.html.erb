@@ -1,1 +1,19 @@
-<p> List of items go here</p>
+<h1>Listing Tools</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+
+  <% @tools.each do |tool| %>
+    <tr>
+      <td><%= tool.name %></td>
+      <td><%= tool.category %></td>
+      <td><%= tool.description %></td>
+      <td><%= tool.price %></td>
+    </tr>
+  <% end %>
+</table>
