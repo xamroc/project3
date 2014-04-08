@@ -5,18 +5,12 @@ class SessionController < ApplicationController
   end
 
   def create
-    # if params[:user][:password].blank?
-    #   PasswordResetter.new(flash).handle_reset_request(user_params)
-    # else
-    #   return if log_user_in( UserAuthenticator.new(session,flash).authenticate_user(user_params) )
-    # end
-    # render :new
-    @user = User.new(user_params)
-      if @user.save
-        log_user_in(@user, "You have successfully signed up!")
-      else
-        render text: "FSDUIFJSDIODFJS"
-      end
+    if params[:user][:password].blank?
+      PasswordResetter.new(flash).handle_reset_request(user_params)
+    else
+      return if log_user_in( UserAuthenticator.new(session,flash).authenticate_user(user_params) )
+    end
+    render :new
   end
 
   def show

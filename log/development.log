@@ -18734,3 +18734,114 @@ Processing by ToolsController#create as HTML
   Rendered text template (0.1ms)
 Completed 200 OK in 31ms (Views: 14.2ms | ActiveRecord: 0.0ms)
 >>>>>>> cd1b14963a41194759c1f6c73b48f652fd7c3234
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mUser Exists (2.8ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cvetter34@gmail.com') LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-08 09:39:52 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SiteController#index as HTML
+  Rendered site/index.html.erb within layouts/application (1.3ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 316ms (Views: 48.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-08 09:39:53 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-08 09:39:53 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-08 09:39:53 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-08 09:39:53 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-08 09:39:53 +0800
+
+
+Started GET "/session/new" for 127.0.0.1 at 2014-04-08 09:39:57 +0800
+Processing by SessionController#new as HTML
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered session/new.html.erb within layouts/application (16.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-08 09:39:57 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-08 09:39:57 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-08 09:39:57 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-08 09:39:57 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-08 09:39:57 +0800
+
+
+Started POST "/session" for 127.0.0.1 at 2014-04-08 09:40:04 +0800
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jPLK+PTjSXeQ4vg2Vuvkpn1x37wghU56DrPvCfvi6Ks=", "user"=>{"email"=>"cvetter34@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('cvetter34@gmail.com') LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 23ms (Views: 1.6ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2014-04-08 09:41:44 +0800
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jPLK+PTjSXeQ4vg2Vuvkpn1x37wghU56DrPvCfvi6Ks=", "user"=>{"email"=>"cvetter34@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (2.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'cvetter34@gmail.com' LIMIT 1
+Completed 500 Internal Server Error in 102ms
+
+NoMethodError (undefined method `admin' for #<User:0x007f41c3509fe0>):
+  app/controllers/application_controller.rb:17:in `log_user_in'
+  app/controllers/session_controller.rb:11:in `create'
+
+
+  Rendered /home/wdi2p2/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/wdi2p2/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/wdi2p2/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/wdi2p2/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.0ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2014-04-08 09:43:07 +0800
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jPLK+PTjSXeQ4vg2Vuvkpn1x37wghU56DrPvCfvi6Ks=", "user"=>{"email"=>"cvetter34@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'cvetter34@gmail.com' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 85ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-08 09:43:07 +0800
+Processing by SiteController#index as HTML
+  Rendered site/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-04-08 09:43:07 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-04-08 09:43:07 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-04-08 09:43:07 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-04-08 09:43:07 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-04-08 09:43:07 +0800
