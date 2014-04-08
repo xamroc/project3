@@ -1,12 +1,15 @@
+require 'pry'
+
 class ToolsController < ApplicationController
   def index
+    @tools = Tool.all
   end
 
   def new
   end
 
   def create
-    @tool = Tool.new(params[:tool])
+    @tool = Tool.new(tool_params)
     @tool.save
     redirect_to @tool
   end
@@ -19,9 +22,6 @@ class ToolsController < ApplicationController
   end
 
   def update
-  end
-
-  def show
   end
 
   private
