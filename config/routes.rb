@@ -4,6 +4,7 @@ Project3::Application.routes.draw do
 
   resources :site
   resources :tools
+  resources :users
 
   get  'register' => 'registration#new', as: :register
   post 'register' => 'registration#create'
@@ -12,6 +13,7 @@ Project3::Application.routes.draw do
   post    'login' => 'session#create'
   delete 'logout' => 'session#destroy'
   get    'logout' => 'session#destroy' #TODO: remove before deployment
+
 
   scope :api do
     get '' => "api#index", as: :api, defaults: {format: :json}
