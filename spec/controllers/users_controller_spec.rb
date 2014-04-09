@@ -11,7 +11,7 @@ describe UsersController do
   end
 
   describe 'GET index' do
-    it "return index of users" do
+    it "returns list of users" do
       get :index, :format => :json
       expect(response.status).to eq 200
       expect(response.body).to include 'cvetter34@gmail.com'
@@ -20,11 +20,12 @@ describe UsersController do
   end
 
   describe 'GET show' do
-    it "returns index of users" do
-      # get :show, :id =>, :format => :json
+
+    it "returns one user" do
+      get :show, :id => 1, :format => :json
       expect(response.status).to eq 200
       expect(response.body).to_not be_nil
-      expect(JSON.load(response.body)["email"]).to eq 'cvetter34@gmail.com'
+      expect(JSON.load(response.body)["email"]).to eq "cvetter34@gmail.com"
     end
   end
 
