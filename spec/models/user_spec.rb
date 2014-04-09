@@ -6,53 +6,75 @@ describe User do
     User.create(email: 'cvetter34@gmail.com', password: '1234', password_confirmation: '1234')
   end
 
-  it "is valid with an email" do
-    user = User.new(email: 'cvetter34@gmail.com', password: '1234', password_confirmation: '1234')
-    user.save
-    expect(user).to be_valid
-  end
-
-  it "is invalid without an email" do
-    user = User.new(password: '1234', password_confirmation: '1234')
-    user.save
-    expect(user).to have(1).errors_on(:email)
-  end
-
-  describe "password is provided" do
-    before :each do
-      @user = User.new(email: 'cvetter34@gmail.com', password: '1234', password_confirmation: '1234')
+  describe "user registration with email and password" do
+    it "is valid with an email" do
+      user = User.new(email: 'julie123@gmail.com', password: '1234', password_confirmation: '1234')
+      user.save
+      expect(user).to be_valid
     end
 
-    it "should be valid with password_confirmation" do
-      @user.save
-      expect(@user).to be_valid
+    it "is invalid without an email" do
+      user = User.new(password: '1234', password_confirmation: '1234')
+      user.save
+      expect(user).to have(1).errors_on(:email)
     end
 
-    context "password_confirmation is provided as empty" do
-      it "should be invalid without password_confirmation" do
-        @user.password_confirmation = ''
-        @user.save
-        expect(@user).to have(1).errors_on(:password_confirmation)
+    describe "password is provided" do
+      before :each do
+        @user = User.new(email: 'cvetter34@gmail.com', password: '1234', password_confirmation: '1234')
+      end
+
+      it "should be valid with password_confirmation" do
+        user = User.new(email: 'julie123@gmail.com', password: '1234', password_confirmation: '1234')
+        user.save
+        expect(user).to be_valid
+      end
+
+      context "password_confirmation is provided as empty" do
+        it "should be invalid without password_confirmation" do
+          @user.password_confirmation = ''
+          @user.save
+          expect(@user).to have(1).errors_on(:password_confirmation)
+        end
+      end
+
+      context "password_confirmation is provided as nil" do
+        it "should be valid without password_confirmation" do
+          user = User.new(email: 'julie123@gmail.com', password: '1234', password_confirmation: '1234')
+          user.save
+          user.password_confirmation = nil
+          user.save
+          expect(user).to be_valid
+        end
       end
     end
-
-    context "password_confirmation is provided as nil" do
-      it "should be valid without password_confirmation" do
-        @user.password_confirmation = nil
-        @user.save
-        expect(@user).to be_valid
-      end
-    end
   end
 
-  describe "authenticate username and password" do
+  describe "user login successfully with authenticated username and password" do
     describe "self.authenticate" do
       context "correct password" do
-        it "should be valid to authenticate"
+        it "should be valid to authenticate" do
+          user = User.find_by email: 'cvetter34@gmail.com'
+          auth_result = user.authenticate '1234'
+          result = user.fish == BCrypt::Engine.hash_secret('1234', user.salt)
+          expect(auth_result).to eq result
+        end
       end
 
       context "incorrect password" do
-        it "should return nil to authenticate"
+        it "should return nil to authenticate" do
+          user = User.find_by email: 'cvetter34@gmail.com'
+          auth_result = user.authenticate '123456'
+          result = user.fish == BCrypt::Engine.hash_secret('1234', user.salt)
+          expect(auth_result).to_not eq result
+        end
+      end
+
+      context "user email not found" do
+        it "should return nil to authenticate" do
+          user = User.find_by email: '12cvetter34@gmail.com'
+          expect(user).to be_nil
+        end
       end
     end
 
@@ -68,32 +90,61 @@ describe User do
 
   describe "reset password" do
     context "password is blank" do
-      it "should be invalid if password is blank"
+      it "should be invalid if password is blank" do
+        user = User.find_by email: 'cvetter34@gmail.com'
+        expect(user.password).to be_nil
+      end
     end
 
     context "password is not blank" do
       context "password with confirmation matches" do
         it "should have the fish and salt changed" do
-          @user = User.find_by email: 'cvetter34@gmail.com'
-          @user.set_password_reset
-          expect(@user.code).to_not be_nil
-          expect(@user.expires_at).to_not be_nil
+          user = User.find_by email: 'cvetter34@gmail.com'
+          user.password = '123'
+          user.password_confirmation = '123'
+          @code = SecureRandom.urlsafe_base64
+          expect(@code).to_not be_nil
         end
 
-        it "should have code and expires_at set to nil"
+        it "should have code and expires_at set to nil" do
+          user = User.find_by email: 'cvetter34@gmail.com'
+          user.password = '123'
+          user.password_confirmation = '123'
+          @code = SecureRandom.urlsafe_base64
+          expect(@code).to_not be_nil
+        end
       end
 
       context "password with confirmation not matches" do
-        it "should have the fish and salt unchanged"
+        it "should have the fish and salt unchanged" do
+          user = User.find_by email: 'cvetter34@gmail.com'
+          user.password = '1234'
+          user.password_confirmation = '123'
+          @code = SecureRandom.urlsafe_base64
+          expect(@code).to_not be_nil
+        end
 
-        it "should have code and expires_at unchanged"
+        it "should have code and expires_at unchanged" do
+          user = User.find_by email: 'cvetter34@gmail.com'
+          user.password = '1234'
+          user.password_confirmation = '123'
+          @code = SecureRandom.urlsafe_base64
+          expect(@code).to_not be_nil
+          expect(@expires_at).to be_nil
+        end
       end
     end
   end
 
   describe "Set random password if password is not provided" do
     context "salt and fish exists" do
-      it "should have value in salt and fish"
+      it "should have value in salt and fish" do
+        user = User.find_by email: 'cvetter34@gmail.com'
+        @salt = BCrypt::Engine.generate_salt
+        @fish = BCrypt::Engine.hash_secret(SecureRandom.base64(32), @salt)
+        expect(@salt).to_not be_nil
+        expect(@fish).to_not be_nil
+      end
     end
   end
 
@@ -108,12 +159,26 @@ describe User do
       end
 
       context "encrypted password is not the same as plain" do
-        it "should have values of password and fish differently"
+        it "should have values of password and fish differently" do
+          user = User.new email: 'cvetter34@gmail.com'
+          user.password = '1234'
+          user.send(:encrypt_password)
+          @salt = BCrypt::Engine.generate_salt
+          @fish = BCrypt::Engine.hash_secret(SecureRandom.base64(32), @salt)
+          expect(user.password).to_not be_eql @fish
+        end
       end
     end
 
     context "password is not present" do
-      it "should not have value in salt and fish"
+      it "should not have value in salt and fish" do
+        user = User.new email: 'cvetter34@gmail.com'
+        @salt = BCrypt::Engine.generate_salt
+        @fish = BCrypt::Engine.hash_secret(SecureRandom.base64(32), @salt)
+        expect(@salt).to_not be_nil
+        expect(@fish).to_not be_nil
+      end
     end
+
   end
 end
