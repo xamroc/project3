@@ -16,8 +16,9 @@ Project3::Application.routes.draw do
   scope :api do
     get '' => "api#index", as: :api, defaults: {format: :json}
 
-    resources :tools, except: [ :edit, :new], defaults: {format: :json} do
+    resources :tools, except: [ :edit, :new ], defaults: {format: :json} do
       get ':id' => "tools#show", on: :collection
     end
+  end
 
 end

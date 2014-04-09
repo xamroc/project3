@@ -18,6 +18,7 @@ class ToolsController < ApplicationController
   end
 
   def show
+    # @tool = Tool.find_by_id(params[:id])
   end
 
   def edit
@@ -34,7 +35,7 @@ class ToolsController < ApplicationController
   private
 
     def tool_params
-      params.require(:tool).permit(:name, :category, :description, :photos, :price, :tag, :availability)
+      params.require(:tool).permit(:id, :name, :category, :description, :photos, :price, :tag, :availability)
     end
 
     def set_tool
