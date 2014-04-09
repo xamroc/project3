@@ -1,6 +1,6 @@
 node :linked do
   {
-    tools: api_tools_url,
-    users: api_users_url
+    tools: tools_url,
+    users: users_url
   }
 end
