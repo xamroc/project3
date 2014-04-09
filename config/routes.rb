@@ -19,6 +19,10 @@ Project3::Application.routes.draw do
     resources :tools, except: [ :edit, :new ], defaults: {format: :json} do
       get ':id' => "tools#show", on: :collection
     end
+
+    resources :users, except: [ :edit, :new ], defaults: {format: :json} do
+      get ':id' => "users#show", on: :collection
+    end
   end
 
 end
