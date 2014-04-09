@@ -3,7 +3,6 @@ Project3::Application.routes.draw do
   root 'site#index'
 
   resources :site
-  resources :tools
 
   get  'register' => 'registration#new', as: :register
   post 'register' => 'registration#create'
@@ -18,6 +17,10 @@ Project3::Application.routes.draw do
 
     resources :tools, except: [ :edit, :new ], defaults: {format: :json} do
       get ':id' => "tools#show", on: :collection
+    end
+
+    resources :users, except: [ :edit, :new ], defaults: {format: :json} do
+      get ':id' => "users#show", on: :collection
     end
   end
 
