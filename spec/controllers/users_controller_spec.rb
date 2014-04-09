@@ -20,6 +20,7 @@ describe UsersController do
   end
 
   describe 'GET show' do
+
     it "returns one user" do
       get :show, :id => 1, :format => :json
       expect(response.status).to eq 200

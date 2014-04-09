@@ -3,8 +3,6 @@ Project3::Application.routes.draw do
   root 'site#index'
 
   resources :site
-  resources :tools
-  resources :users
 
   get  'register' => 'registration#new', as: :register
   post 'register' => 'registration#create'
