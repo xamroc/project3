@@ -23,20 +23,20 @@ Tool.create ([
     category: "Tools & Garden",
     description: "It fell from Asgard.",
     photos: "",
-    availability: ""
+    availability: false
   },
   {
     name: "Shovel",
     category: "Tools & Garden",
     description: "This is used for digging out corpses.",
     photos: "",
-    availability: ""
+    availability: false
   },
   {
     name: "Ball",
     category: "Sporting Equipment",
     description: "Target: Julie.",
     photos: "",
-    availability: ""
+    availability: false
   }
 ])
