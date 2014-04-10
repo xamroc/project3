@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140410021946) do
     t.string   "photos"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "availability"
+    t.boolean   "availability"
   end
 
   create_table "users", force: true do |t|
