@@ -1,3 +1,3 @@
 object @tool
 
-attributes :id, :name, :category, :description, :photos, :price, :tag, :availability
+attributes :id, :name, :category, :description, :photos, :availability
