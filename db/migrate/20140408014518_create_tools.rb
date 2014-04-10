@@ -5,8 +5,8 @@ class CreateTools < ActiveRecord::Migration
       t.string :category
       t.string :description
       t.string :photos
-      t.string :availability
       t.belongs_to :user
+      t.boolean :availability
 
       t.timestamps
     end

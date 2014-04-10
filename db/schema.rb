@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140410100345) do
     t.string   "category"
     t.string   "description"
     t.string   "photos"
-    t.string   "availability"
+    t.boolean  "availability", default: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

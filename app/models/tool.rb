@@ -7,4 +7,8 @@ class Tool < ActiveRecord::Base
 
   validates :name, :category, :description, presence: true
 
+  def toggle_availability
+    self.availability = !self.availability
+  end
+
 end
