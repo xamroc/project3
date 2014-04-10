@@ -4,6 +4,8 @@ PASSWORD_RESET_EXPIRES = 4
 
 class User < ActiveRecord::Base
 
+  has_many :tools
+
   attr_accessor :password, :password_confirmation
 
   before_save :set_random_password, :encrypt_password
