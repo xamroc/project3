@@ -1,6 +1,6 @@
 collection @tools, root: :tools
 
-attributes :id, :name, :category, :description, :user_id
+attributes :id, :name, :category, :description, :user_id, :tool_id
 
 node :href do |tool|
   tool_url(tool)
