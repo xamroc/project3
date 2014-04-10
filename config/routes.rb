@@ -23,6 +23,10 @@ Project3::Application.routes.draw do
     resources :users, except: [ :edit, :new ], defaults: {format: :json} do
       get ':id' => "users#show", on: :collection
     end
+
+    resources :transactions, except: [ :edit, :new ], defaults: {format: :json} do
+      get ':id' => "transactions#show", on: :collection
+    end
   end
 
 end
