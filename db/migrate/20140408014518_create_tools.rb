@@ -5,8 +5,7 @@ class CreateTools < ActiveRecord::Migration
       t.string :category
       t.string :description
       t.string :photos
-      t.string :price
-      t.string :tag
+      t.string :availability
 
       t.timestamps
     end
