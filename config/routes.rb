@@ -12,6 +12,8 @@ Project3::Application.routes.draw do
   delete 'logout' => 'session#destroy'
   get    'logout' => 'session#destroy' #TODO: remove before deployment
 
+  get     'newtool' => 'tools#new'
+
 
   scope :api do
     get '' => "api#index", as: :api, defaults: {format: :json}

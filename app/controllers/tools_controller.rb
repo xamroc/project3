@@ -2,6 +2,7 @@ require 'pry'
 
 class ToolsController < ApplicationController
 
+  before_action :is_authenticated?
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -25,7 +26,7 @@ class ToolsController < ApplicationController
   end
 
   def update
-    if @tool.update(params[:tool].permit(:name, :category, :description, :photos, :price, :tag, :availability))
+    if @tool.update(params[:tool].permit(:name, :category, :description, :availability))
       redirect_to @tool
     else
       render :edit
@@ -35,7 +36,7 @@ class ToolsController < ApplicationController
   private
 
     def tool_params
-      params.require(:tool).permit(:id, :user_id, :name, :category, :description, :photos, :price, :tag, :availability)
+      params.require(:tool).permit(:id, :user_id, :name, :category, :description, :photos, :availability)
     end
 
     def set_tool
