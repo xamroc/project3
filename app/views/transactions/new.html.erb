@@ -1,0 +1,8 @@
+<%= form_for :transaction, url: transactions_url, method: :post, html: { id: "transactionform" } do |f| %>
+  <fieldset>
+    <legend>Rent A Tool</legend>
+        <%= f.label :tool_id %>
+        <%= f.text_field :tool_id, placeholder: "Tool ID" %>
+        <%= f.submit "Submit" %>
+  </fieldset>
+<% end %>
