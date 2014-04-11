@@ -21,10 +21,9 @@ ActiveRecord::Schema.define(version: 20140410100345) do
     t.string   "category"
     t.string   "description"
     t.string   "photos"
-    t.boolean  "availability", default: false
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "availability", default: false
   end
 
   create_table "transactions", force: true do |t|
@@ -43,13 +42,13 @@ ActiveRecord::Schema.define(version: 20140410100345) do
     t.string   "password_confirmation"
     t.string   "salt"
     t.string   "fish"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "name"
     t.string   "description"
     t.string   "photo"
     t.string   "facebook"
     t.string   "mobile_number"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 end
