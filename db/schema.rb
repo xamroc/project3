@@ -21,9 +21,11 @@ ActiveRecord::Schema.define(version: 20140410100345) do
     t.string   "category"
     t.string   "description"
     t.string   "photos"
+    t.string   "price"
+    t.string   "tag"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "availability", default: false
+    t.string   "availability"
   end
 
   create_table "transactions", force: true do |t|

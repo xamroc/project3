@@ -1,4 +1,4 @@
 object @user
 
-attributes :id, :email, :password, :password_confirmation, :salt, :fish
-attribute :name, :description, :facebook, :mobile_number if current_user
+attributes :first_name, :description, :photo, :city, :country
+attribute :first_name, :city, :country, :description, :facebook, :mobile_number, :email if current_user
