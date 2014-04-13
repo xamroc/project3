@@ -2,7 +2,7 @@ require 'pry'
 
 class ToolsController < ApplicationController
 
-  before_action :is_authenticated?
+  # before_action :is_authenticated?
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
 
   def index
