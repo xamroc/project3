@@ -1,7 +1,6 @@
 $ ->
   $('#ajax_user').on 'click', (e) ->
     id = $('#ajax_user').data('id')
-    alert id
     $.ajax
       type: 'GET'
       url:  '/api/users/' + id
