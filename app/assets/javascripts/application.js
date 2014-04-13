@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require user
 //= require_tree .
 //= require ./vendor/noty/packaged/jquery.noty.packaged
 //= require ./vendor/noty/themes/default
+
