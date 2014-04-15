@@ -6,7 +6,7 @@ class CreateTools < ActiveRecord::Migration
       t.string :description
       t.string :photos
       t.belongs_to :user
-      t.boolean :availability
+      t.boolean :availability, default: false
 
       t.timestamps
     end
