@@ -44,9 +44,19 @@ describe Tool do
 
   end
 
-  it "toggles availability" do
-    tool.toggle_availability
-    expect(tool.availability).to be_true
+  describe "#toggle_availability" do
+
+    it "is able to toggle to true" do
+      tool.toggle_availability
+      expect(tool.availability).to be_true
+    end
+
+    it "is able to toggle to false" do
+      tool.availability = true
+      tool.toggle_availability
+      expect(tool.availability).to be_false
+    end
+
   end
 
   it "is able to remove items"
