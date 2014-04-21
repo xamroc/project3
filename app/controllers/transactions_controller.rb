@@ -3,8 +3,8 @@ require 'pry'
 class TransactionsController < ApplicationController
 
   respond_to :json
-  before_action :is_authenticated?, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  # before_action :is_authenticated?, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_transaction, only: [:update, :destroy]
 
   def index
     @transactions = if params[:id]
@@ -18,15 +18,14 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @transaction = Transaction.new(transaction_params)
-    @transaction.user = @user
-    if @transaction.save
+    user = current_user
+    transaction = Transaction.new(transaction_params)
+    transaction.user = user
+    if transaction.save
       head :created, location: transaction_url(transaction)
     else
       head :unprocessable_entity
     end
-    # redirect_to @transaction
   end
 
   def show
@@ -51,6 +50,6 @@ class TransactionsController < ApplicationController
     end
 
     def set_transaction
-      @transaction = Transaction.find(params[:id])
+      head :not_found unless @transaction = Transaction.where('id in (?)', params[:id]).take
     end
 end
