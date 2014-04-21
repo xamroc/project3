@@ -22,15 +22,15 @@ class ToolsController < ApplicationController
     # @tool = Tool.find_by_id(params[:id])
   end
 
-  def edit
-  end
-
   def update
     if @tool.update(params[:tool].permit(:name, :category, :description, :availability))
       redirect_to @tool
     else
       render :edit
     end
+  end
+
+  def destroy
   end
 
   private

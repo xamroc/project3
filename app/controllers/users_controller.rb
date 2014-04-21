@@ -18,9 +18,6 @@ class UsersController < ApplicationController
   def show
   end
 
-  def edit
-  end
-
   def update
     if @user.update(params[:user].permit(:email, :password, :password_confirmation, :salt, :fish))
       redirect_to root_url

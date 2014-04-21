@@ -24,6 +24,17 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:id])
   end
 
+  def update
+    if @transaction.update(params[:transaction].permit(:transaction_date, :rent_date, :return_date))
+      redirect_to @transaction
+    else
+      render text: 'Edit transaction failed.'
+    end
+  end
+
+  def destroy
+  end
+
   private
 
     def transaction_params
