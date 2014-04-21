@@ -19,16 +19,30 @@ Project3::Application.routes.draw do
   scope :api do
     get '' => "api#index", as: :api, defaults: {format: :json}
 
-    resources :tools, except: [ :edit, :new ], defaults: {format: :json} do
-      get ':id' => "tools#show", on: :collection
+    resources :users, except: [ :edit, :new ], defaults: {format: :json} do
+      get ':id' => "users#index", on: :collection
+
+        resources :tools, except: [ :edit, :new ], defaults: {format: :json} do
+          get ':id' => "tools#index", on: :collection
+        end
+
+        resources :transactions, except: [ :edit, :new ], defaults: {format: :json} do
+          get ':id' => "transactions#index", on: :collection
+        end
+
     end
 
-    resources :users, except: [ :edit, :new ], defaults: {format: :json} do
-      get ':id' => "users#show", on: :collection
+    resources :tools, except: [ :edit, :new ], defaults: {format: :json} do
+      get ':id' => "tools#index", on: :collection
+
+        resources :transactions, except: [ :edit, :new ], defaults: {format: :json} do
+          get ':id' => "transactions#index", on: :collection
+        end
+
     end
 
     resources :transactions, except: [ :edit, :new ], defaults: {format: :json} do
-      get ':id' => "transactions#show", on: :collection
+      get ':id' => "transactions#index", on: :collection
     end
   end
 
