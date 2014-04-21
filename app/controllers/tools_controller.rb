@@ -4,7 +4,7 @@ class ToolsController < ApplicationController
 
   respond_to :json
   before_action :is_authenticated?, only: [:new, :edit, :update, :destroy]
-  before_action :set_tool, only: [:show, :edit, :update, :destroy]
+  before_action :set_tool, only: [:update, :destroy]
 
   def index
     @tools = if params[:id]
@@ -18,24 +18,23 @@ class ToolsController < ApplicationController
   end
 
   def create
-    @tool = Tool.new(tool_params)
-    @tool.save
-    redirect_to @tool
-  end
-
-  def show
-    # @tool = Tool.find_by_id(params[:id])
-  end
-
-  def update
-    if @tool.update(params[:tool].permit(:name, :category, :description, :availability))
-      redirect_to @tool
+    tool = Tool.new(tool_params)
+    if tool.save
+      head :created, location: tool_url(tool)
     else
-      render :edit
+      head :unprocessable_entity
     end
   end
 
+  def show
+  end
+
+  def update
+    head @tool.update(tool_params) ? :no_content : :unprocessable_entity
+  end
+
   def destroy
+    head @tool.destroy ? :no_content : :unprocessable_entity
   end
 
   private
@@ -45,7 +44,7 @@ class ToolsController < ApplicationController
     end
 
     def set_tool
-      @tool = Tool.find(params[:id])
+      head :not_found unless @tool = Tool.where('id in (?)', params[:id]).take
     end
 
 end
