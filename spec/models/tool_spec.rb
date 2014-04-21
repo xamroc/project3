@@ -59,6 +59,10 @@ describe Tool do
 
   end
 
-  it "is able to remove items"
+  describe "remove item" do
+
+    it "is found"
+
+  end
 
 end
