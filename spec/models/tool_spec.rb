@@ -36,11 +36,17 @@ describe Tool do
 
   describe "edit item" do
 
-    it "is valid with a name"
+    context "when item is found" do
+      it "responds with 200"
+      it "shows the resource"
+      it "is valid with a name"
+      it "is valid with a category"
+      it "is valid with a description"
+    end
 
-    it "is valid with a category"
-
-    it "is valid with a description"
+    context "when item is not found" do
+      it "responds with 404"
+    end
 
   end
 
@@ -61,7 +67,15 @@ describe Tool do
 
   describe "remove item" do
 
-    it "is found"
+    context "when item is found" do
+      it "responds with 200"
+      it "shows the resource"
+      it "is nil when removed"
+    end
+
+    context "when item is not found" do
+      it "responds with 404"
+    end
 
   end
 
