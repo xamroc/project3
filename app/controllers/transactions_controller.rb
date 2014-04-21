@@ -2,11 +2,16 @@ require 'pry'
 
 class TransactionsController < ApplicationController
 
+  respond_to :json
   before_action :is_authenticated?, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
 
   def index
-    @transactions = Transaction.all
+    @transactions = if params[:id]
+      Transaction.where('id in (?)', params[:id].split(','))
+    else
+      @transactions = Transaction.all
+    end
   end
 
   def new
@@ -16,8 +21,12 @@ class TransactionsController < ApplicationController
     @user = current_user
     @transaction = Transaction.new(transaction_params)
     @transaction.user = @user
-    @transaction.save
-    redirect_to @transaction
+    if @transaction.save
+      head :created, location: transaction_url(transaction)
+    else
+      head :unprocessable_entity
+    end
+    # redirect_to @transaction
   end
 
   def show

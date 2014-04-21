@@ -2,11 +2,16 @@ require 'pry'
 
 class ToolsController < ApplicationController
 
+  respond_to :json
   before_action :is_authenticated?, only: [:new, :edit, :update, :destroy]
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tools = Tool.all
+    @tools = if params[:id]
+      Tool.where('id in (?)', params[:id].split(','))
+    else
+      @tools = Tool.all
+    end
   end
 
   def new
