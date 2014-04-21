@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :fish
       t.string :first_name
       t.string :last_name
-      t.string :description
+      t.text   :description
       t.string :photo
       t.string :facebook
       t.string :mobile_number

@@ -3,7 +3,7 @@ require 'pry'
 class TransactionsController < ApplicationController
 
   respond_to :json
-  # before_action :is_authenticated?, only: [:new, :create, :edit, :update, :destroy]
+  before_action :is_authenticated?, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_transaction, only: [:update, :destroy]
 
   def index
