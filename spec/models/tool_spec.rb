@@ -39,9 +39,10 @@ describe Tool do
     context "when item is found" do
       it "responds with 200"
       it "shows the resource"
-      it "is valid with a name"
-      it "is valid with a category"
-      it "is valid with a description"
+      it "is valid with a name, category, and description"
+      it "is invalid without a name"
+      it "is invalid without a category"
+      it "is invalid without a description"
     end
 
     context "when item is not found" do
