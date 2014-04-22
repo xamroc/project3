@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe UsersController do
 
@@ -22,10 +23,11 @@ describe UsersController do
   describe 'GET show' do
 
     it "returns one user" do
+      binding.pry
       get :show, :id => 1, :format => :json
       expect(response.status).to eq 200
       expect(response.body).to_not be_nil
-      expect(JSON.load(response.body)["email"]).to eq "cvetter34@gmail.com"
+      expect(JSON.load(response.body)["email"]).to eq 'cvetter34@gmail.com'
     end
   end
 

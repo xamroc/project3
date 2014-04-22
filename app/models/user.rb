@@ -4,7 +4,7 @@ PASSWORD_RESET_EXPIRES = 4
 
 class User < ActiveRecord::Base
 
-  has_many :tools
+  has_many :tools_owned, inverse_of: :owner, class_name: "Tool"
   has_many :transactions
   has_many :tools, through: :transactions
 

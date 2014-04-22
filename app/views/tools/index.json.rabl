@@ -1,7 +1,24 @@
-collection @tools, root: :tools
+object false
 
-attributes :id, :name, :category, :description, :user_id, :tool_id, :availability
+child @tools, object_root: false do
 
-node :href do |tool|
-  tool_url(tool)
+  attributes :id, :name, :category, :description, :user_id, :tool_id, :availability
+
+  if @transactions
+    child @transactions, object_root: false do
+      attributes :id, :transaction_date, :rent_date
+    end
+  end
+
+  node :href do |tool|
+    tool_url(tool)
+  end
+
+  node :links do |tool|
+    {
+      user: user_url(tool.owner),
+      transactions: @transactions ? @transactions.map {|t| t.id} : tool_transactions_url(tool)
+    }
+  end
+
 end

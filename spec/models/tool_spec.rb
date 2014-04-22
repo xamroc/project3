@@ -32,6 +32,11 @@ describe Tool do
       expect(tool).to be_invalid
     end
 
+    it "is false by default" do
+      tool.save
+      expect(tool.availability).to be_false
+    end
+
   end
 
   describe "edit item" do
