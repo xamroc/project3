@@ -36,19 +36,48 @@ describe Tool do
 
   describe "edit item" do
 
-    it "is valid with a name"
+    context "when item is found" do
+      it "responds with 200"
+      it "shows the resource"
+      it "is valid with a name, category, and description"
+      it "is invalid without a name"
+      it "is invalid without a category"
+      it "is invalid without a description"
+    end
 
-    it "is valid with a category"
-
-    it "is valid with a description"
+    context "when item is not found" do
+      it "responds with 404"
+    end
 
   end
 
-  it "toggles availability" do
-    tool.toggle_availability
-    expect(tool.availability).to be_true
+  describe "#toggle_availability" do
+
+    it "is able to toggle to true" do
+      tool.toggle_availability
+      expect(tool.availability).to be_true
+    end
+
+    it "is able to toggle to false" do
+      tool.availability = true
+      tool.toggle_availability
+      expect(tool.availability).to be_false
+    end
+
   end
 
-  it "is able to remove items"
+  describe "remove item" do
+
+    context "when item is found" do
+      it "responds with 200"
+      it "shows the resource"
+      it "is nil when removed"
+    end
+
+    context "when item is not found" do
+      it "responds with 404"
+    end
+
+  end
 
 end
