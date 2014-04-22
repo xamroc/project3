@@ -10,3 +10,17 @@ $ ->
           $('#ajax_tools').append '<p> true </p>'
         else
           $('#ajax_tools').append '<p> false </p>'
+
+
+  # TODO: make JSON url based on search input
+
+  $('#search-button').on "click", (e) ->
+    input = $("#search-input").val()
+    $.ajax
+      type: 'GET'
+      # We NEED a URL!!!
+      url: ''
+      data: input
+      success: (data, textStatus, jqXHR) ->
+
+        # TODO: render data on view
