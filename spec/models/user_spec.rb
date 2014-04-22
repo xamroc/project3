@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe User do
 
-  before :each do
+  before :all do
     User.create(email: 'cvetter34@gmail.com', password: '1234', password_confirmation: '1234')
+    User.create(email: 'julie34@gmail.com', password: '1234', password_confirmation: '1234')
   end
 
   describe "user registration with email and password" do
@@ -180,5 +181,22 @@ describe User do
       end
     end
 
+  end
+
+  describe "the association of 1-to-many relationship between user and tools" do
+    it "should owned one tools" do
+      user = User.find_by email: 'cvetter34@gmail.com'
+      tool = Tool.create(user_id: user.id, name: "Hammer", category: "Garden Tools", description: "This is a good hammer")
+      expect(user.tools_owned.count).to eq 1
+    end
+  end
+
+  describe "Many users can borrow many tools" do
+    it "should have one transactions" do
+      user = User.find_by email: 'cvetter34@gmail.com'
+      tool = Tool.create(name: "Hammer", category: "Garden Tools", description: "This is a good hammer")
+      Transaction.create(user_id: user.id, tool_id: tool.id)
+      expect(user.transactions.count).to eq 1
+    end
   end
 end
