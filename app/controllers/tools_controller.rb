@@ -3,22 +3,32 @@ require 'pry'
 class ToolsController < ApplicationController
 
   respond_to :json
-  before_action :is_authenticated?, only: [:new, :edit, :update, :destroy]
+  # before_action :is_authenticated?, only: [:new, :edit, :update, :destroy]
   before_action :set_tool, only: [:update, :destroy]
+  before_action :get_user
 
   def index
     @tools = if params[:id]
-      Tool.where('id in (?)', params[:id].split(','))
+      user_clause = @user ? "and user_id = #{@user.id}" : ""
+
+      Tool.where("id in (?) #{user_clause}", params[:id].split(','))
     else
-      @tools = Tool.all
+      @user ? @user.tools_owned : Tool.all
     end
+
+    @transactions = Transaction.where('tool_id = ?', @tools[0]) if @tools.length == 1
   end
 
   def new
   end
 
   def create
-    tool = Tool.new(tool_params)
+    tool = if @user
+      @user.tool.new(tool_params)
+    else
+      Tool.new(tool_params)
+    end
+
     if tool.save
       head :created, location: tool_url(tool)
     else
@@ -44,7 +54,18 @@ class ToolsController < ApplicationController
     end
 
     def set_tool
-      head :not_found unless @tool = Tool.where('id in (?)', params[:id]).take
+      head :not_found unless @tool = if @user
+        @user.tools.where('id in ?', params[:id]).take
+      else
+        Tool.where('id in (?)', params[:id]).take
+      end
+    end
+
+    def get_user
+      if params[:user_id]
+        head :bad_request unless @user =
+          User.includes(:tools).where('id = ?', params[:user_id]).take
+      end
     end
 
 end

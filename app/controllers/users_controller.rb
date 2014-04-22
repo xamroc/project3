@@ -7,9 +7,11 @@ class UsersController < ApplicationController
 
   def index
     @users = if params[:id]
+      user_clause = @user ? "and user_id = #{@user.id}" : ""
+
       User.where('id in (?)',params[:id].split(','))
     else
-      @users = User.all
+      @user ? @user.tools : User.all
     end
   end
 
@@ -43,7 +45,8 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    head :not_found unless @user = User.where('id in (?)', params[:id]).take
+    head :not_found unless @user =
+      User.includes(:tools).where('id in (?)', params[:id]).take
   end
 
 end
