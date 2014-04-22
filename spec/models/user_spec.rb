@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
 
-  before :each do
+  before :all do
     User.create(email: 'cvetter34@gmail.com', password: '1234', password_confirmation: '1234')
     User.create(email: 'julie34@gmail.com', password: '1234', password_confirmation: '1234')
   end
@@ -184,37 +184,18 @@ describe User do
   end
 
   describe "the association of 1-to-many relationship between user and tools" do
-    it "should owned two tools" do
+    it "should owned one tools" do
       user = User.find_by email: 'cvetter34@gmail.com'
-      Tool.create(user_id: "1", name: "Hammer", category: "Garden Tools", description: "This is a good hammer")
-      Tool.create(user_id: "1", name: "Ladder", category: "Garden Tools", description: "This is a good ladder")
-      expect(user.tools_owned.count).to eq 2
-    end
-
-    it "should have only one tool is belong to user" do
-      user = User.find_by email: 'cvetter34@gmail.com'
-      Tool.create(user_id: "1", name: "Hammer", category: "Garden Tools", description: "This is a good hammer")
-      Tool.create(user_id: "2", name: "Ladder", category: "Garden Tools", description: "This is a good ladder")
+      tool = Tool.create(user_id: user.id, name: "Hammer", category: "Garden Tools", description: "This is a good hammer")
       expect(user.tools_owned.count).to eq 1
     end
   end
 
   describe "Many users can borrow many tools" do
-    it "should have two transactions" do
+    it "should have one transactions" do
       user = User.find_by email: 'cvetter34@gmail.com'
-      Tool.create(user_id: "1", name: "Hammer", category: "Garden Tools", description: "This is a good hammer")
-      Tool.create(user_id: "1", name: "Ladder", category: "Garden Tools", description: "This is a good ladder")
-      Transaction.create(user_id: "1", tool_id: "1")
-      Transaction.create(user_id: "1", tool_id: "2")
-      expect(user.transactions.count).to eq 2
-    end
-
-    it "should have one transaction" do
-      user = User.find_by email: 'cvetter34@gmail.com'
-      Tool.create(user_id: "1", name: "Hammer", category: "Garden Tools", description: "This is a good hammer")
-      Tool.create(user_id: "1", name: "Ladder", category: "Garden Tools", description: "This is a good ladder")
-      Transaction.create(user_id: "1", tool_id: "1")
-      Transaction.create(user_id: "2", tool_id: "2")
+      tool = Tool.create(name: "Hammer", category: "Garden Tools", description: "This is a good hammer")
+      Transaction.create(user_id: user.id, tool_id: tool.id)
       expect(user.transactions.count).to eq 1
     end
   end

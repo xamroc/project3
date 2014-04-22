@@ -87,28 +87,22 @@ describe Tool do
 
   describe "the association of 1-to-many relationship between user and tools" do
     it "should owned by user" do
-      User.create(email: 'cvetter34@gmail.com', password: '1234', password_confirmation: '1234')
-      tool.user_id = 1
+      user = User.create(email: 'cvetter34@gmail.com', password: '1234', password_confirmation: '1234')
+      tool.user_id = user.id
       tool.save
       expect(tool.owner.email).to eq 'cvetter34@gmail.com'
-    end
-
-    it "have no owner" do
-      tool.user_id = 1
-      tool.save
-      expect(tool.owner).to be_nil
     end
   end
 
   describe "Tools can be borrow by many users" do
     it "involve in two transactions" do
-      User.create(email: 'cvetter34@gmail.com', password: '1234', password_confirmation: '1234')
-      User.create(email: 'julie34@gmail.com', password: '1234', password_confirmation: '1234')
-      User.create(email: 'marco34@gmail.com', password: '1234', password_confirmation: '1234')
-      tool.user_id = 3
+      user1 = User.create(email: 'cvetter34@gmail.com', password: '1234', password_confirmation: '1234')
+      user2 = User.create(email: 'julie34@gmail.com', password: '1234', password_confirmation: '1234')
+      user3 = User.create(email: 'marco34@gmail.com', password: '1234', password_confirmation: '1234')
+      tool.user_id = user3.id
       tool.save
-      Transaction.create(user_id: "1", tool_id: "1")
-      Transaction.create(user_id: "2", tool_id: "1")
+      Transaction.create(user_id: user1.id, tool_id: tool.id)
+      Transaction.create(user_id: user2.id, tool_id: tool.id)
       expect(tool.transactions.count).to eq 2
     end
   end
