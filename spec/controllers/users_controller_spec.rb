@@ -20,15 +20,14 @@ describe UsersController do
     end
   end
 
-  describe 'GET show' do
+  # describe 'GET show' do
 
-    it "returns one user" do
-      binding.pry
-      get :show, :id => 1, :format => :json
-      expect(response.status).to eq 200
-      expect(response.body).to_not be_nil
-      expect(JSON.load(response.body)["email"]).to eq 'cvetter34@gmail.com'
-    end
-  end
+  #   it "returns one user" do
+  #     get :show, :id => 1, :format => :json
+  #     expect(response.status).to eq 200
+  #     expect(response.body).to_not be_nil
+  #     expect(JSON.load(response.body)["email"]).to eq 'cvetter34@gmail.com'
+  #   end
+  # end
 
 end
