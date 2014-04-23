@@ -12,6 +12,8 @@ class ToolsController < ApplicationController
       user_clause = @user ? "and user_id = #{@user.id}" : ""
 
       Tool.where("id in (?) #{user_clause}", params[:id].split(','))
+    elsif params[:search].present?
+      Tool.where("lower(name) like ? OR lower(category) like ? ", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
     else
       @user ? @user.tools_owned : Tool.all
     end
