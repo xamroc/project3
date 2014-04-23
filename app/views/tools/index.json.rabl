@@ -1,6 +1,6 @@
 object false
 
-collection @tools, object_root: false do
+child @tools, object_root: false do
 
   attributes :id, :name, :category, :description, :user_id, :tool_id, :availability
 
