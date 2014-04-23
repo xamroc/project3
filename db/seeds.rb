@@ -49,6 +49,48 @@ Tool.create ([
     description: "Target: Julie.",
     user_id: 3,
     photos: "",
+  },
+  {
+    name: "LOLBall",
+    category: "Sporting Equipment",
+    description: "Target: Julie.",
+    user_id: 3,
+    photos: "",
+  },
+  {
+    name: "SphereBall",
+    category: "Sporting Equipment",
+    description: "Target: Julie.",
+    user_id: 3,
+    photos: "",
+  },
+  {
+    name: "SquareBall",
+    category: "Sporting Equipment",
+    description: "Target: Julie.",
+    user_id: 3,
+    photos: "",
+  },
+  {
+    name: "FootBall",
+    category: "Sporting Equipment",
+    description: "Target: Julie.",
+    user_id: 3,
+    photos: "",
+  },
+  {
+    name: "WtfBall",
+    category: "Sporting Equipment",
+    description: "Target: Julie.",
+    user_id: 3,
+    photos: "",
+  },
+  {
+    name: "CannonBallz",
+    category: "Sporting Equipment",
+    description: "Target: Julie.",
+    user_id: 3,
+    photos: "",
   }
 ])
 
