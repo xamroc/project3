@@ -30,9 +30,10 @@ class ToolsController < ApplicationController
     else
       Tool.new(tool_params)
     end
-
+    user = current_user
+    tool.owner = user
     if tool.save
-      head :created, location: tool_url(tool)
+      head :created
     else
       head :unprocessable_entity
     end
