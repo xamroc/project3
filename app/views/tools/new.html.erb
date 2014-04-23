@@ -14,8 +14,9 @@
         <%= f.text_field :category, class: "form-control", placeholder: "Category" %>
       </div>
       <div class="large-4 columns">
-        <%= f.label :photos, class: "sr-only" %>
-        <p>Upload photos here</p>
+        <%= f.label :avatar, class: "sr-only" %>
+        <%= f.file_field :avatar, class: "sr-only" %>
+        <%= f.hidden_field :avatar_cache %>
       </div>
       <div class="large-4 columns">
         <%= f.label :price, class: "sr-only" %>

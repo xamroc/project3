@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.text   :description
-      t.string :photo
+      t.string :avatar
       t.string :facebook
       t.string :mobile_number
       t.string :street_address2

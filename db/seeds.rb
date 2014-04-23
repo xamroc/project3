@@ -34,63 +34,54 @@ Tool.create ([
     category: "Tools & Garden",
     description: "It fell from Asgard.",
     user_id: 1,
-    photos: "",
   },
   {
     name: "Shovel",
     category: "Tools & Garden",
     description: "This is used for digging out corpses.",
     user_id: 2,
-    photos: "",
   },
   {
     name: "Ball",
     category: "Sporting Equipment",
     description: "Target: Julie.",
     user_id: 3,
-    photos: "",
   },
   {
     name: "LOLBall",
     category: "Sporting Equipment",
     description: "Target: Julie.",
     user_id: 3,
-    photos: "",
   },
   {
     name: "SphereBall",
     category: "Sporting Equipment",
     description: "Target: Julie.",
     user_id: 3,
-    photos: "",
   },
   {
     name: "SquareBall",
     category: "Sporting Equipment",
     description: "Target: Julie.",
     user_id: 3,
-    photos: "",
   },
   {
     name: "FootBall",
     category: "Sporting Equipment",
     description: "Target: Julie.",
     user_id: 3,
-    photos: "",
   },
   {
     name: "WtfBall",
     category: "Sporting Equipment",
     description: "Target: Julie.",
     user_id: 3,
-    photos: "",
   },
   {
     name: "CannonBallz",
     category: "Sporting Equipment",
     description: "Target: Julie.",
     user_id: 3,
-    photos: "",
   }
 ])
 

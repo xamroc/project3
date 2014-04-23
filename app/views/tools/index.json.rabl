@@ -2,7 +2,7 @@ object false
 
 child @tools, object_root: false do
 
-  attributes :id, :name, :category, :description, :user_id, :tool_id, :availability
+  attributes :id, :name, :category, :description, :avatar, :user_id, :tool_id, :availability
 
   if @transactions
     child @transactions, object_root: false do
