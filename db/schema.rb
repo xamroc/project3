@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140410100345) do
     t.string   "description"
     t.string   "photos"
     t.integer  "user_id"
-    t.boolean  "availability", default: false
+    t.boolean  "availability"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,16 +43,11 @@ ActiveRecord::Schema.define(version: 20140410100345) do
     t.string   "password_confirmation"
     t.string   "salt"
     t.string   "fish"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
     t.string   "description"
     t.string   "photo"
     t.string   "facebook"
     t.string   "mobile_number"
-    t.string   "street_address2"
-    t.string   "street_address1"
-    t.string   "city"
-    t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

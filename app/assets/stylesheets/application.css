@@ -23,3 +23,11 @@
 html, body {
   height: 100%;
 }
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  font-size: 50px;
+}
