@@ -11,6 +11,7 @@ gem 'slim'
 gem 'rabl'
 gem 'oj'
 gem 'handlebars_assets'
+gem 'carrierwave'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

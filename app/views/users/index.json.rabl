@@ -2,7 +2,7 @@ object false
 
 child @users, object_root: false do
 
-  attributes :id, :name, :description, :photo, :city, :country, :email
+  attributes :id, :name, :description, :avatar, :city, :country, :email
   attribute :name, :city, :country, :description, :facebook, :mobile_number, :email if current_user
 
   node :href do |user|
