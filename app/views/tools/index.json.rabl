@@ -16,7 +16,7 @@ child @tools, object_root: false do
 
   node :links do |tool|
     {
-      user: user_url(tool.owner),
+      user: tool.owner,
       transactions: @transactions ? @transactions.map {|t| t.id} : tool_transactions_url(tool)
     }
   end
