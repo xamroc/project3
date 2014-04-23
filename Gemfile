@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'slim'
 gem 'rabl'
 gem 'oj'
+gem 'handlebars_assets'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

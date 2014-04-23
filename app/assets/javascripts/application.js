@@ -14,7 +14,8 @@
 //= require jquery_ujs
 //= require user
 //= require tools
-//= require_tree .
+//= require handlebars.runtime
+//= require_tree ./templates
 //= require ./vendor/noty/packaged/jquery.noty.packaged
 //= require ./vendor/noty/themes/default
 
