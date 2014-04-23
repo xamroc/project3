@@ -30,8 +30,18 @@ class UsersController < ApplicationController
   def show
   end
 
+  def edit
+    @user = current_user
+  end
+
   def update
-    head @user.update(user_params) ? :no_content : :unprocessable_entity
+    if @user.update(user_params)
+      redirect_to root_url
+      # head :no_content
+    else
+      render :edit
+      head :unprocessable_entity
+    end
   end
 
   def destroy
@@ -41,7 +51,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :description, :avatar, :facebook, :mobile_number)
   end
 
   def set_user

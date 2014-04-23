@@ -12,8 +12,9 @@ Project3::Application.routes.draw do
   delete 'logout' => 'session#destroy'
   get    'logout' => 'session#destroy' #TODO: remove before deployment
 
-  get     'newtool' => 'tools#new'
-  get     'newtransaction' => 'transactions#new'
+  get   'edituser' => 'users#edit'
+  get   'newtool' => 'tools#new'
+  get 'newtransaction' => 'transactions#new'
 
 
   scope :api do
