@@ -1,5 +1,6 @@
 require 'bcrypt'
 require 'carrierwave/orm/activerecord'
+require 'carrierwave/processing/mini_magick'
 
 PASSWORD_RESET_EXPIRES = 4
 
@@ -14,7 +15,7 @@ class User < ActiveRecord::Base
   before_save :set_random_password, :encrypt_password
   validates :email, presence: true, uniqueness: {case_sensitive: false}
   validates :password, confirmation: true
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, ProfileUploader
 
   def self.authenticate email, password
     user = User.find_by email: email

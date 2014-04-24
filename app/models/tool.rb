@@ -1,4 +1,5 @@
 require 'carrierwave/orm/activerecord'
+require 'carrierwave/processing/mini_magick'
 
 class Tool < ActiveRecord::Base
 
@@ -8,7 +9,7 @@ class Tool < ActiveRecord::Base
   has_many :users, through: :transactions
 
   validates :name, :category, :description, presence: true
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, ToolpicUploader
 
   attr_accessor :avatar_cache
 
