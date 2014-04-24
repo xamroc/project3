@@ -17,15 +17,20 @@ $ ->
         search: searchField
       success: (data, textStatus, jqXHR) ->
 
-        test = ul = $("<ul>")
+        searchTemplate = HandlebarsTemplates['tools/search_details'](data)
+        $('#search_result').html(searchTemplate)
 
-        for element in data.tools
-          ul.append "<li>" + element.id + "</li>"
-          ul.append "<li>" + element.name + "</li>"
-          ul.append "<li>" + element.category + "</li>"
+  $('#search_result').on 'click', '.tool-search-item', (e) ->
+    id = $(@).data('id')
 
-
-        $('#search_result').html(ul)
+    $.ajax
+      type: 'GET'
+      url:  '/api/tools/' + id
+      success: (data, textStatus, jqXHR) ->
+        newTemplate = HandlebarsTemplates['tools/tool_details'](data)
+        $('#toolModal').html("")
+        $('#toolModal').append(newTemplate)
+        $('#toolModal').foundation('reveal').foundation('reveal','open');
 
   $('#main').on 'click', '.tool-item', (e) ->
     id = $(@).data('id')
