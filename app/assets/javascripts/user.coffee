@@ -6,12 +6,12 @@ $ ->
     id = $(@).data('id')
     $.ajax
       type: 'GET'
-      url: '/api/users/' + id + '/tools'
+      url: '/api/users/' + id
       success: (data, textStatus, jqXHR) ->
         userToolsTemplate = HandlebarsTemplates['tools/user_toollist'](data)
-        $('#toolModal').html("")
-        $('#toolModal').append(userToolsTemplate)
-        $('#toolModal').foundation('reveal').foundation('reveal','open');
+        $('#main').html("")
+        $('#main').append(userToolsTemplate)
+        $('#main').foundation()
 
   id = $('#ajax_user').data('id')
   if id
