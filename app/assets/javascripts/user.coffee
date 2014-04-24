@@ -8,9 +8,9 @@ $ ->
       type: 'GET'
       url: '/api/users/' + id
       success: (data, textStatus, jqXHR) ->
-        newTemplate = HandlebarsTemplates['tools/tool_details'](data)
+        userToolsTemplate = HandlebarsTemplates['tools/user_toollist'](data)
         $('#toolModal').html("")
-        $('#toolModal').append(newTemplate)
+        $('#toolModal').append(userToolsTemplate)
         $('#toolModal').foundation('reveal').foundation('reveal','open');
 
   id = $('#ajax_user').data('id')
