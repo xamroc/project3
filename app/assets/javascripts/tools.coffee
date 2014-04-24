@@ -4,7 +4,7 @@ $ ->
     url:  '/api/tools'
     success: (data, textStatus, jqXHR) ->
       template = HandlebarsTemplates['tools/index'](data)
-      $('#ajax_tools').append(template)
+      $('#main').append(template)
 
   $('#search').keyup () ->
 
@@ -27,7 +27,7 @@ $ ->
 
         $('#search_result').html(ul)
 
-  $('#ajax_tools').on 'click', '.tool-item', (e) ->
+  $('#main').on 'click', '.tool-item', (e) ->
     id = $(@).data('id')
     $.ajax
       type: 'GET'
