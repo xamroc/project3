@@ -18,8 +18,14 @@
       <div class="content" id="panel-tools">
         {{#each links/tools}}
           <div class="row">
-            <div class="small-8 large-8 columns">
+            <div class="small-6 large-6 columns">
               <p>{{name}}</p>
+            </div>
+            <div class="onoffswitch small-6 large-6 columns">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="{{name}}">
+              <label class="onoffswitch-label" for="{{name}}">
+                <div class="onoffswitch-inner"></div>
+              </label>
             </div>
           </div>
         {{/each}}
