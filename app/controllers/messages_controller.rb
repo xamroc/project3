@@ -1,5 +1,15 @@
 class MessagesController < ApplicationController
 
+  before_filter :set_user
+
+  def index
+    if params[:mailbox] == "sent"
+      @messages= @user.sent_messages
+    elsif params{:mailbox} == "inbox"
+      @messages = @user.received_messages
+    end
+  end
+
   def new
     @message = <span class="skimlinks-unlinked">Message.new</span>
     if params[:reply_to]
@@ -20,4 +30,26 @@ class MessagesController < ApplicationController
       render :action => :new
     end
   end
+
+  def show
+    @message = Message.readingmessage(params[:id].@user.user_id)
+  end
+
+  def delete_multiple
+    if params[:delete]
+      params[:delete].each { |id|
+      @message = Message.find(id)
+      @message.mark_message_deleted(@message.id,@user_id) unless @message.nil?
+      }
+      flash[:notice] = "Messages deleted"
+    end
+    redirect_to user_messages_path(@user, @messages)
+  end
+
+  private
+
+  def set_user
+    @user = current_user
+  end
+end
 
