@@ -1,0 +1,12 @@
+{{#each users}}
+  <div id="userprofile" data-id={{id}}>
+    <div>
+      <p> {{name}} </p>
+      <p> {{email}} </p>
+      <p> {{description}} </p>
+      <p> {{facebook}} </p>
+      <p> {{mobile_number}} </p>
+      <img src="{{avatar/url}}" class="img-circle" >
+    </div>
+  </div>
+{{/each}}
