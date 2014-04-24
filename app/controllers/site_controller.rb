@@ -9,4 +9,7 @@ class SiteController < ApplicationController
   def terms
   end
 
+  def tlist
+  end
+
 end
