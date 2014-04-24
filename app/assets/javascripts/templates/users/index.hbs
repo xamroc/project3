@@ -1,0 +1,10 @@
+{{#each users}}
+  <div id="tlist" data-id={{id}}>
+    <div>
+      <p> {{email}} </p>
+      {{#each links/tools}}
+        <p> {{ name }} </p>
+      {{/each}}
+    </div>
+  </div>
+{{/each}}

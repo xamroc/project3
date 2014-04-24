@@ -37,3 +37,12 @@ $ ->
         $('#toolModal').html("")
         $('#toolModal').append(newTemplate)
         $('#toolModal').foundation('reveal').foundation('reveal','open');
+
+  $('#tlist').on 'click', (e) ->
+    $.ajax
+      type: 'GET'
+      url:  '/api/users/'
+      success: (data, textStatus, jqXHR) ->
+        console.log data
+        toolsList = HandlebarsTemplates['users/index'](data)
+        $('#tlist').append(toolsList)
