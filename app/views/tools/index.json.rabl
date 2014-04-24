@@ -12,6 +12,7 @@ child @tools, object_root: false do
 
   node :href do |tool|
     tool_url(tool)
+    edit_url(tool)
   end
 
   node :links do |tool|

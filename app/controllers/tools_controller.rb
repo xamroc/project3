@@ -4,7 +4,7 @@ class ToolsController < ApplicationController
 
   respond_to :json
   before_action :is_authenticated?, only: [:new, :edit, :update, :destroy]
-  before_action :set_tool, only: [:update, :destroy]
+  before_action :set_tool, only: [:edit, :update, :destroy]
   before_action :get_user
 
   def index
@@ -39,11 +39,20 @@ class ToolsController < ApplicationController
     end
   end
 
-  def show
+  def edit
+    # binding.pry
+    # user = current_user
+    # tool.owner = user
   end
 
   def update
-    head @tool.update(tool_params) ? :no_content : :unprocessable_entity
+    if @tool.update(tool_params)
+      # head :no_content
+      redirect_to root_url, notice: "You have edit your tool successfully"
+    else
+      render :edit
+      head :unprocessable_entity
+    end
   end
 
   def destroy

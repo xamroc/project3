@@ -13,7 +13,8 @@ Project3::Application.routes.draw do
   get    'logout' => 'session#destroy' #TODO: remove before deployment
 
   get   'edituser' => 'users#edit'
-  get   'newtool' => 'tools#new'
+  get    'newtool' => 'tools#new'
+  get   'tools/edit/:id' => 'tools#edit', as: :edit
   get 'newtransaction' => 'transactions#new'
 
 
