@@ -1,3 +1,4 @@
+'require pry'
 class MessagesController < ApplicationController
 
   before_filter :set_user
@@ -11,19 +12,19 @@ class MessagesController < ApplicationController
   end
 
   def new
-    @message = <span class="skimlinks-unlinked">Message.new</span>
+    @message = Message.new
     if params[:reply_to]
       @reply_to = User.find_by_user_id(params[:reply_to])
-      unless @<span class="skimlinks-unlinked">reply_to.nil</span>?
+      unless @reply_to.nil?
         @message.recepient_id = @reply_to.user_id
       end
     end
   end
 
   def create
-    @message = <span class="skimlinks-unlinked">Message.new(params</span>[:message])
+    @message = Message.new(params[:message])
     @message.sender_id = @user.user_id
-    if @<span class="skimlinks-unlinked">message.save</span>
+    if @message.save
       flash[:notice] = "Message has been sent"
       redirect_to user_messages_path(current_user, :mailbox=>:inbox)
     else
@@ -48,8 +49,13 @@ class MessagesController < ApplicationController
 
   private
 
+  def message_params
+    params.require(:message).permit(:subject, :body, :sender_id, :recipient_id, :read_at, :sender_deleted, :recipient_deleted)
+  end
+
   def set_user
     @user = current_user
   end
-end
+
+ends
 
