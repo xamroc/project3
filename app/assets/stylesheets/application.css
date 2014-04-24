@@ -29,6 +29,18 @@
   padding: 0 0 60px;
 }
 
+.top-bar {
+  padding: 0 5px 0 5px;
+}
+
+.header-bar {
+  padding-bottom: 5px;
+}
+
+/*.right {
+  margin-top: -6px;
+}*/
+
 html, body {
   height: 100%;
 }
