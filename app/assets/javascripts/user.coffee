@@ -13,6 +13,9 @@ $ ->
         $('#main').append(userToolsTemplate)
         $('#main').foundation()
 
+  $('#main').on 'change', '.onoffswitch-checkbox', (e) ->
+    alert $('.onoffswitch-checkbox').prop('checked')
+
   id = $('#ajax_user').data('id')
   if id
     $.ajax
