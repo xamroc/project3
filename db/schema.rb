@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140410100345) do
     t.string   "description"
     t.string   "avatar"
     t.integer  "user_id"
-    t.boolean  "availability"
+    t.boolean  "availability", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -12,6 +12,15 @@
  *= require_tree .
  */
 
+/*
+
+  COLORS
+
+  GREEN: hsla(93, 65%, 39%, 1);
+  RED: hsla(359, 86%, 42%, 1);
+
+*/
+
 #wrap {
   min-height: 100%;
   height: auto !important;
@@ -46,4 +55,12 @@ ul li {
 .tool-item {
   cursor: hand;
   cursor: pointer;
+}
+
+.available {
+  color: hsla(93, 65%, 39%, 1);
+}
+
+.unavailable {
+  color: hsla(359, 86%, 42%, 1);
 }

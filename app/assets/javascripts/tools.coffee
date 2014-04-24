@@ -28,12 +28,12 @@ $ ->
         $('#search_result').html(ul)
 
   $('#ajax_tools').on 'click', '.tool-item', (e) ->
-    # id = $(@).data('id')
-    # $.ajax
-    #   type: 'GET'
-    #   url:  '/api/tools/' + id
-    #   success: (data, textStatus, jqXHR) ->
-    #     newTemplate = HandlebarsTemplates['tools/tool_details'](data)
-    #     $('#ajax_tools').foundation(newTemplate)
-
-    $('#myModal').foundation('reveal').foundation('reveal','open');
+    id = $(@).data('id')
+    $.ajax
+      type: 'GET'
+      url:  '/api/tools/' + id
+      success: (data, textStatus, jqXHR) ->
+        newTemplate = HandlebarsTemplates['tools/tool_details'](data)
+        $('#toolModal').html("")
+        $('#toolModal').append(newTemplate)
+        $('#toolModal').foundation('reveal').foundation('reveal','open');
