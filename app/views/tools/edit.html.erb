@@ -15,6 +15,7 @@
       </div>
       <div class="large-4 columns">
         <%= f.label :avatar, class: "sr-only" %>
+        <%= image_tag(@tool.avatar_url) if @tool.avatar? %>
         <%= f.file_field :avatar, class: "sr-only" %>
         <%= f.hidden_field :avatar_cache %>
         <%= f.label :remove_avatar %>
