@@ -11,7 +11,7 @@ child @users, object_root: false do
 
   node :links do |user|
     {
-      tools: user_tools_url(user),
+      tools: user.tools_owned,
       transactions: user_transactions_url(user)
     }
   end
