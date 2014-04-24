@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_for :tool, url: tools_url, method: :post, html: { id: "tool-form" } do |f| %>
+  <%= form_for :tool, url: tool_url, method: :patch, html: { id: "edittool-form" } do |f| %>
     <fieldset>
       <div class="large-12 columns">
         <%= f.label :name, class: "sr-only" %>
@@ -23,7 +23,7 @@
         <%= f.check_box :availability, placeholder: "Yes", value: "Yes" %><%= f.label :yes %>
       </div> -->
       <div class="large-12 columns">
-        <%= f.submit "Create", class: "btn" %>
+        <%= f.submit "Edit", class: "btn" %>
       </div>
 
     </fieldset>
@@ -31,4 +31,4 @@
 
 </div>
 
-<%= link_to 'Back', tools_url %>
+<%= link_to 'Back', root_url %>
