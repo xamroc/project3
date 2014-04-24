@@ -2,6 +2,17 @@ $ ->
   # hit /api/me
   # if a user comes back, render user template
   # if error (401 unauthorized) render not-logged-in template
+  $('#header-profile').on 'click', (e) ->
+    id = $(@).data('id')
+    $.ajax
+      type: 'GET'
+      url: '/api/users/' + id
+      success: (data, textStatus, jqXHR) ->
+        newTemplate = HandlebarsTemplates['tools/tool_details'](data)
+        $('#toolModal').html("")
+        $('#toolModal').append(newTemplate)
+        $('#toolModal').foundation('reveal').foundation('reveal','open');
+
   id = $('#ajax_user').data('id')
   if id
     $.ajax
@@ -19,3 +30,4 @@ $ ->
       success: (data, textStatus, jqXHR) ->
         for user in data.users
           $('#ajax_user').append('Name: ' + user.name + 'City: ' + user.city + 'Country: ' + user.country)
+
