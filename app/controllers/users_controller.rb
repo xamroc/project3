@@ -2,6 +2,7 @@ require 'pry'
 
 class UsersController < ApplicationController
 
+  before_action :is_authenticated?, only: [:new, :edit, :update, :destroy]
   respond_to :json
   before_action :set_user, only: [:update, :destroy]
 

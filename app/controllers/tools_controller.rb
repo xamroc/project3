@@ -3,7 +3,7 @@ require 'pry'
 class ToolsController < ApplicationController
 
   respond_to :json
-  # before_action :is_authenticated?, only: [:new, :edit, :update, :destroy]
+  before_action :is_authenticated?, only: [:new, :edit, :update, :destroy]
   before_action :set_tool, only: [:update, :destroy]
   before_action :get_user
 
