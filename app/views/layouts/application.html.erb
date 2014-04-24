@@ -19,6 +19,7 @@
         </ul>
         <section class="top-bar-section">
           <ul class="right">
+            <li><%= link_to("PROFILE", "javascript:;") if current_user %></li>
             <li><%= link_to("Login", login_url ) unless current_user %></li>
             <li><%= link_to("Sign Up", register_url ) unless current_user  %></li>
             <li><%= link_to("Logout", logout_url ) if current_user  %></li>
