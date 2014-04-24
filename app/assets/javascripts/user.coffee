@@ -6,7 +6,7 @@ $ ->
     id = $(@).data('id')
     $.ajax
       type: 'GET'
-      url: '/api/users/' + id
+      url: '/api/users/' + id + '/tools'
       success: (data, textStatus, jqXHR) ->
         userToolsTemplate = HandlebarsTemplates['tools/user_toollist'](data)
         $('#toolModal').html("")
