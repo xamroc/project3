@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :tools_owned, inverse_of: :owner, class_name: "Tool"
   has_many :transactions
   has_many :tools, through: :transactions
+  has_many :received_messages, :class_name => 'Message', :primary_key => 'user_id', :foreign_key => 'recipient_id', :order => "messages.created_at DESC", :conditions => ["messages.recipient_deleted = ?", false]
 
   attr_accessor :password, :password_confirmation, :avatar_cache
 
@@ -53,6 +54,14 @@ class User < ActiveRecord::Base
         self.update_attributes(params.merge( code: nil, expires_at: nil ))
       end
     end
+  end
+
+  def unread_messages?
+    unread_messages_count > 0 ? true : false
+  end
+
+  def unread_message_count
+    eval '<span class="skimlinks-unlinked">messages.count(:conditions</span> => ["recipient_id = ? AND read_at IS NULL", self.user_id])'
   end
 
   protected
