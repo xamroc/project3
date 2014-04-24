@@ -12,6 +12,15 @@
  *= require_tree .
  */
 
+/*
+
+  COLORS
+
+  GREEN: hsla(93, 65%, 39%, 1);
+  RED: hsla(359, 86%, 42%, 1);
+
+*/
+
 #wrap {
   min-height: 100%;
   height: auto !important;
@@ -54,4 +63,12 @@ ul li {
   margin-bottom: 3%;
   border-radius: 100px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+}
+
+.available {
+  color: hsla(93, 65%, 39%, 1);
+}
+
+.unavailable {
+  color: hsla(359, 86%, 42%, 1);
 }
