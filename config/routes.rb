@@ -5,6 +5,8 @@ Project3::Application.routes.draw do
   resources :site
   resources :messages
 
+  get   'messages' => 'messages#index'
+
   get  'register' => 'registration#new', as: :register
   post 'register' => 'registration#create'
 

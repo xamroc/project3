@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   has_many :tools_owned, inverse_of: :owner, class_name: "Tool"
   has_many :transactions
   has_many :tools, through: :transactions
-  has_many :received_messages, -> { where ["messages.recipient_deleted = ?", false]}, class_name: "Message", :foreign_key => 'recipient_id'
+  has_many :received_messages, inverse_of: :recipient, class_name: "Message", :foreign_key => 'recipient_id'
+  has_many :sent_messages, inverse_of: :sender, class_name: "Message", :foreign_key => 'sender_id'
 
   attr_accessor :password, :password_confirmation, :avatar_cache
 

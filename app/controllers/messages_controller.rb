@@ -4,11 +4,16 @@ class MessagesController < ApplicationController
   before_filter :set_user
 
   def index
+    @user = current_user
+    message = Message.find(params[:id])
+    message.sender = @user
+    # @user = current_user
     if params[:mailbox] == "sent"
       @messages= @user.sent_messages
     elsif params{:mailbox} == "inbox"
       @messages = @user.received_messages
     end
+    # @messages = Message.all
   end
 
   def new
@@ -33,7 +38,8 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @message = Message.readingmessage(params[:id].@user.user_id)
+    # @message = Message.readingmessage(params[:id].@user.user_id)
+    # @message = Message.find(params[:id])
   end
 
   def delete_multiple
@@ -57,5 +63,5 @@ class MessagesController < ApplicationController
     @user = current_user
   end
 
-ends
+end
 
