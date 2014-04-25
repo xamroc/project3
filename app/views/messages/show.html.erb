@@ -1,0 +1,22 @@
+<h1>Inbox Show</h1>
+<% @messages.each do |message| %>
+  <p>
+    Subject:
+    <%= message.subject %>
+  </p>
+
+  <p>
+    Message:
+    <%= message.body %>
+  </p>
+
+  <p>
+    Sent by:
+    <%= message.updated_at %>
+  </p>
+
+  <p>
+    Sent from:
+    <%= message.sender_id %>
+  </p>
+<% end %>
