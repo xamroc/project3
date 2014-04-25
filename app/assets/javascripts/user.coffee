@@ -14,13 +14,21 @@ $ ->
         $('#main').foundation()
 
   $('#main').on 'change', '.onoffswitch-checkbox', (e) ->
-    alert $('.onoffswitch-checkbox').prop('checked')
+    id = this.dataset.id
+    checked = this.checked;
+    $.ajax
+      type: 'patch'
+      url: '/api/tools/' + id
+      data: { "tool[availability]": checked }
+      success: (data, textStatus, jqXHR) ->
+        console.log textStatus
 
   id = $('#ajax_user').data('id')
   if id
     $.ajax
       type: 'GET'
       url:  '/api/users/' + id
+      data: { _method: "put" }
       success: (data, textStatus, jqXHR) ->
         # if user is logged in...
         $('#ajax_user').html(
