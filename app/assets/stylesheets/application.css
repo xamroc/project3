@@ -82,6 +82,8 @@ ul {
   color: hsla(359, 86%, 42%, 1);
 }
 
+/* Search Bar CSS */
+
 #search {
   margin: 0;
 }
@@ -191,4 +193,14 @@ ul {
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px;
+}
+
+/* Inbox Message */
+#message-li li {
+  list-style: none;
+}
+
+#message-li li:hover {
+  background: hsla(28, 96%, 36%, 0.7);
+  cursor: pointer;
 }
