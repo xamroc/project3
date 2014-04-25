@@ -23,6 +23,18 @@ $ ->
       success: (data, textStatus, jqXHR) ->
         console.log textStatus
 
+  $('#main').on 'click', '.edit-tool-item', (e) ->
+    e.preventDefault()
+    id = this.dataset.id
+    $.ajax
+      type: 'get'
+      url: '/api/tools/' + id
+      success: (data, textStatus, jqXHR) ->
+        newTemplate = HandlebarsTemplates['tools/tool_edit'](data)
+        $('#toolModal').html("")
+        $('#toolModal').append(newTemplate)
+        $('#toolModal').foundation('reveal').foundation('reveal','open');
+
   id = $('#ajax_user').data('id')
   if id
     $.ajax
