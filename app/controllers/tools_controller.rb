@@ -50,7 +50,6 @@ class ToolsController < ApplicationController
       render :nothing => true, :status => 200, :content_type => 'text/html'
       # redirect_to root_url, notice: "You have edit your tool successfully"
     else
-
       # render :edit
       head :unprocessable_entity
     end

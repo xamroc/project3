@@ -19,6 +19,7 @@
   GREEN: hsla(93, 65%, 39%, 1);
   RED: hsla(359, 86%, 42%, 1);
   GRAY: hsla(0, 0%, 50%, 1);
+  HIGHLIGHT BLUE: hsla(194, 66%, 61%, 1);
 
 */
 
@@ -60,6 +61,15 @@ ul {
 .tool-item {
   cursor: hand;
   cursor: pointer;
+}
+
+.edit-tool-item {
+  cursor: hand;
+  cursor: pointer;
+}
+
+.edit-tool-item:hover {
+  color: hsla(194, 66%, 61%, 1);
 }
 
 .pin-row {
