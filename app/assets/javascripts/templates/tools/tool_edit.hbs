@@ -17,7 +17,11 @@
         </div>
         <div class="large-4 columns">
           <label name="tool[avatar]" class="sr-only"></label>
-          {{#if avatar/avatar/url}}<img src="{{avatar/avatar/url}}">{{/if}}
+          {{#if avatar/avatar/url}}
+            <img src="{{avatar/avatar/url}}">
+          {{else}}
+            <p>No Content</p>
+          {{/if}}
           <input type="file" name="tool[avatar]" class="sr-only">
           <input type="hidden" name="tool[avatar_cache]">
         </div>
