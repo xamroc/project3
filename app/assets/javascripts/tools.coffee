@@ -15,9 +15,19 @@ $ ->
       type: 'GET'
       url: '/api/users/' + user_id
       success: (data, textStatus, jqXHR) ->
-        userToolsTemplate = HandlebarsTemplates['tools/user_toollist'](data)
+        tabTemplate = HandlebarsTemplates['site/tabs']
+        userProfileTemplate = HandlebarsTemplates['users/profile_details'](data)
+        toolListTemplate = HandlebarsTemplates['tools/tool_list'](data)
+
         $('#main').html("")
-        $('#main').append(userToolsTemplate)
+        $('#main').append(tabTemplate)
+
+        $('#panel-profile').html("")
+        $('#panel-profile').append(userProfileTemplate)
+
+        $('#panel-tools').html("")
+        $('#panel-tools').append(toolListTemplate)
+
         $('#main').foundation()
 
   $('#search').keyup () ->
