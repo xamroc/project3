@@ -2,11 +2,12 @@ $ ->
   # hit /api/me
   # if a user comes back, render user template
   # if error (401 unauthorized) render not-logged-in template
+
   $('#header-profile').on 'click', (e) ->
-    id = $(@).data('id')
+    user_id = $(@).data('id')
     $.ajax
       type: 'GET'
-      url: '/api/users/' + id
+      url: '/api/users/' + user_id
       success: (data, textStatus, jqXHR) ->
         userToolsTemplate = HandlebarsTemplates['tools/user_toollist'](data)
         $('#main').html("")
