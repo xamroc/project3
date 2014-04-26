@@ -3,17 +3,6 @@ $ ->
   # if a user comes back, render user template
   # if error (401 unauthorized) render not-logged-in template
 
-  $('#header-profile').on 'click', (e) ->
-    user_id = $(@).data('id')
-    $.ajax
-      type: 'GET'
-      url: '/api/users/' + user_id
-      success: (data, textStatus, jqXHR) ->
-        userToolsTemplate = HandlebarsTemplates['tools/user_toollist'](data)
-        $('#main').html("")
-        $('#main').append(userToolsTemplate)
-        $('#main').foundation()
-
   $('#main').on 'change', '.onoffswitch-checkbox', (e) ->
     id = this.dataset.id
     checked = this.checked;

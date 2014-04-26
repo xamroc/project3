@@ -6,6 +6,20 @@ $ ->
       template = HandlebarsTemplates['tools/index'](data)
       $('#main').append(template)
 
+  $('#header-profile').on 'click', (e) ->
+    user_id = $(@).data('id')
+    loadTabs(user_id)
+
+  loadTabs = (user_id) ->
+    $.ajax
+      type: 'GET'
+      url: '/api/users/' + user_id
+      success: (data, textStatus, jqXHR) ->
+        userToolsTemplate = HandlebarsTemplates['tools/user_toollist'](data)
+        $('#main').html("")
+        $('#main').append(userToolsTemplate)
+        $('#main').foundation()
+
   $('#search').keyup () ->
 
     searchField = $('#search').val()
@@ -35,6 +49,7 @@ $ ->
   $('#main').on 'click', '.edit-tool-item', (e) ->
     e.preventDefault()
     id = this.dataset.id
+    user_id = this.dataset.user_id
     $.ajax
       type: 'get'
       url: '/api/tools/' + id
@@ -43,6 +58,7 @@ $ ->
         $('#toolModal').html("")
         $('#toolModal').append(newTemplate)
         $('#toolModal').foundation('reveal').foundation('reveal','open');
+        loadTabs(user_id)
 
   $('#main').on 'click', '.tool-item', (e) ->
     id = $(@).data('id')
@@ -54,6 +70,10 @@ $ ->
         $('#toolModal').html("")
         $('#toolModal').append(newTemplate)
         $('#toolModal').foundation('reveal').foundation('reveal','open');
+
+  $('#toolModal').on 'submit', '#edittool-form', (e) ->
+    $('#toolModal').html("")
+    $('#toolModal').append("You have successfully edited your tool.")
 
   $('#tlist').on 'click', (e) ->
     $.ajax
