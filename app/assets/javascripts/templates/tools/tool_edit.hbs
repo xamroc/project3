@@ -1,23 +1,28 @@
+{{#each tools}}
 <div class="row">
-  {{#each tools}}
-    <form enctype="multipart/form-data" action="/api/tools/{{id}}" name="tool", method="post", id="edittool-form" data-remote="true">
+    <form enctype="multipart/form-data" action="/api/tools/{{id}}" name="tool", method="post", id="edittool-form" data-userid="{{user_id}}">
       <fieldset>
         <div class="large-12 columns">
-          <input name="_method" type="hidden" value="patch" />
+          <input name="_method" type="hidden" value="patch">
+          <input name="tool[id]" type="hidden" value="{{id}}">
           <label name="tool[name]" class="sr-only"></label>
-          <input type="text" name="tool[name]" class="form-control" placeholder="Name of tool">
+          <input type="text" name="tool[name]" class="form-control" placeholder="Name of tool" value="{{name}}">
         </div>
         <div class="large-12 columns">
           <label name="tool[description]" class="sr-only"></label>
-          <input type="text" name="tool[description]" class="form-control" placeholder="Description of tool">
+          <input type="text" name="tool[description]" class="form-control" placeholder="Description of tool" value="{{description}}">
         </div>
         <div class="large-4 columns">
           <label name="tool[category]" class="sr-only"></label>
-          <input type="text" name="tool[category]" class="form-control" placeholder="Category">
+          <input type="text" name="tool[category]" class="form-control" placeholder="Category" value="{{category}}">
         </div>
         <div class="large-4 columns">
           <label name="tool[avatar]" class="sr-only"></label>
-          {{#if avatar/avatar/url}}<img src="{{avatar/avatar/url}}">{{/if}}
+          {{#if avatar/avatar/url}}
+            <img src="{{avatar/avatar/url}}">
+          {{else}}
+            <p>No Content</p>
+          {{/if}}
           <input type="file" name="tool[avatar]" class="sr-only">
           <input type="hidden" name="tool[avatar_cache]">
         </div>
@@ -29,9 +34,9 @@
           -->
         </div>
         <div class="large-12 columns">
-          <input type="submit" value="Edit" class="btn">
+          <input type="submit" id="edit_button" value="Edit">
         </div>
       </fieldset>
     </form>
-  {{/each}}
 </div>
+{{/each}}

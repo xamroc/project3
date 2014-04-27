@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20140424125636) do
     t.string   "recipient_id"
     t.boolean  "sender_deleted"
     t.boolean  "recipient_deleted"
-    t.string   "subject", null: false
+    t.string   "subject",                             null: false
     t.text     "body"
     t.datetime "read_at"
-    t.string   "container", default: "draft"
+    t.string   "container",         default: "draft"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
