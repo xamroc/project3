@@ -16,19 +16,24 @@ $ ->
       url: '/api/users/' + user_id
       success: (data, textStatus, jqXHR) ->
         tabTemplate = HandlebarsTemplates['site/tabs']
-        userProfileTemplate = HandlebarsTemplates['users/profile_details'](data)
-        toolListTemplate = HandlebarsTemplates['tools/tool_list'](data)
 
         $('#main').html("")
         $('#main').append(tabTemplate)
 
-        $('#panel-profile').html("")
-        $('#panel-profile').append(userProfileTemplate)
-
-        $('#panel-tools').html("")
-        $('#panel-tools').append(toolListTemplate)
+        loadUserProfile(data)
+        loadToolsList(data)
 
         $('#main').foundation()
+
+  loadUserProfile = (data) ->
+    userProfileTemplate = HandlebarsTemplates['users/profile_details'](data)
+    $('#panel-profile').html("")
+    $('#panel-profile').append(userProfileTemplate)
+
+  loadToolsList = (data) ->
+    toolListTemplate = HandlebarsTemplates['tools/tool_list'](data)
+    $('#panel-tools').html("")
+    $('#panel-tools').append(toolListTemplate)
 
   $('#search').keyup () ->
 
@@ -59,7 +64,6 @@ $ ->
   $('#main').on 'click', '.edit-tool-item', (e) ->
     e.preventDefault()
     id = this.dataset.id
-    user_id = this.dataset.user_id
     $.ajax
       type: 'get'
       url: '/api/tools/' + id
@@ -68,7 +72,6 @@ $ ->
         $('#toolModal').html("")
         $('#toolModal').append(newTemplate)
         $('#toolModal').foundation('reveal').foundation('reveal','open');
-        loadTabs(user_id)
 
   $('#main').on 'click', '.tool-item', (e) ->
     id = $(@).data('id')
@@ -79,11 +82,36 @@ $ ->
         newTemplate = HandlebarsTemplates['tools/tool_details'](data)
         $('#toolModal').html("")
         $('#toolModal').append(newTemplate)
-        $('#toolModal').foundation('reveal').foundation('reveal','open');
+        $('#toolModal').foundation('reveal','open')
 
-  $('#toolModal').on 'submit', '#edittool-form', (e) ->
+  successMessage = () ->
     $('#toolModal').html("")
     $('#toolModal').append("You have successfully edited your tool.")
+
+  toolsListRefresh = (user_id) ->
+    $.ajax
+      type: 'GET'
+      url:  '/api/users/' + user_id
+      success: (data, textStatus, jqXHR) ->
+        loadToolsList(data)
+        $('#toolModal').foundation('reveal','close')
+
+  $('#toolModal').on 'submit', '#edittool-form', (e) ->
+    e.preventDefault()
+
+    userId = $(@).data().userid
+    tool = $(@).serializeJSON()
+
+    $.ajax "/api/users/#{userId}/tools/#{tool['tool']['id']}",
+      type: 'PATCH'
+      contentType: 'application/json'
+      dataType: 'json'
+      data: JSON.stringify(tool)
+      success: (data) ->
+        successMessage()
+        toolsListRefresh(userId)
+      error: (x,y,z) ->
+        console.log x, y, z
 
   $('#tlist').on 'click', (e) ->
     $.ajax

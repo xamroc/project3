@@ -1,9 +1,10 @@
+{{#each tools}}
 <div class="row">
-  {{#each tools}}
-    <form enctype="multipart/form-data" action="/api/tools/{{id}}" name="tool", method="post", id="edittool-form" data-remote="true">
+    <form enctype="multipart/form-data" action="/api/tools/{{id}}" name="tool", method="post", id="edittool-form" data-userid="{{user_id}}">
       <fieldset>
         <div class="large-12 columns">
-          <input name="_method" type="hidden" value="patch" />
+          <input name="_method" type="hidden" value="patch">
+          <input name="tool[id]" type="hidden" value="{{id}}">
           <label name="tool[name]" class="sr-only"></label>
           <input type="text" name="tool[name]" class="form-control" placeholder="Name of tool" value="{{name}}">
         </div>
@@ -37,5 +38,5 @@
         </div>
       </fieldset>
     </form>
-  {{/each}}
 </div>
+{{/each}}
