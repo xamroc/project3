@@ -13,7 +13,7 @@
     <div class="small-7 large-7 columns" id="modal-des">
       <p>{{description}}</p>
       <p><span class="bold"> Category : </span> {{category}}
-      <span id="right-align"> <span class="bold">Status :</span>
+      <span class="right-align"> <span class="bold">Status :</span>
       {{#if availability}}
         <span class="available">Available!</span>
       {{else}}
@@ -28,10 +28,10 @@
           <div class="small-2 large-2 columns">
             <img src="{{links/user/avatar/url}}" id="img-circle-des" >
           </div>
-          <div class="small-9 large-9 columns">
-            <p class="owner-id-des">{{links/user/description}}</p>
-            <p>{{links/user/email}}
-            <span>{{links/user/mobile_number}}</span></p>
+          <div class="small-10 large-10 columns owner-id-des">
+            <p>{{links/user/description}}</p>
+            <p>Email: {{links/user/email}}
+            <span class="right-align">Mobile Contact: {{links/user/mobile_number}}</span></p>
           </div>
       </div>
   </div>
