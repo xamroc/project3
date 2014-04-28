@@ -40,6 +40,16 @@ User.create ([
     avatar: File.open(File.join(Rails.root, '/public/images/julie.jpg')),
     facebook: "jstag",
     mobile_number: "+852 5374 3892"
+  },
+  {
+    email: "gollum@gmail.com",
+    password: "123",
+    password_confirmation: "123",
+    name: "Gollum",
+    description: "My precious...",
+    avatar: File.open(File.join(Rails.root, '/public/images/smeagol.jpg')),
+    facebook: "precious",
+    mobile_number: "+852 4987 3892"
   }
 ])
 
@@ -91,6 +101,41 @@ Tool.create ([
     category: "Tools & Garden",
     description: "One Ring to rule them all.",
     avatar: File.open(File.join(Rails.root, '/public/images/power-ring.jpg')),
+    user_id: 4
+  },
+  {
+    name: "Wand of Death",
+    category: "Tools & Garden",
+    description: "The all-powerful wand.",
+    avatar: File.open(File.join(Rails.root, '/public/images/wand.jpg')),
+    user_id: 3
+  },
+  {
+    name: "Buster Sword",
+    category: "Tools & Garden",
+    description: "Only wieldable by skinny blonde men.",
+    avatar: File.open(File.join(Rails.root, '/public/images/buster-sword.jpg')),
+    user_id: 1
+  },
+  {
+    name: "Chop Sticks",
+    category: "Tools & Garden",
+    description: "You won't stand out at all.",
+    avatar: File.open(File.join(Rails.root, '/public/images/chop_sticks.jpg')),
+    user_id: 1
+  },
+  {
+    name: "Zangetsu",
+    category: "Tools & Garden",
+    description: "Bankai not included.",
+    avatar: File.open(File.join(Rails.root, '/public/images/zangetsu.jpg')),
+    user_id: 1
+  },
+  {
+    name: "Invisibility Cloak",
+    category: "Tools & Garden",
+    description: "Useful at hot springs.",
+    avatar: File.open(File.join(Rails.root, '/public/images/cloak-of-invisibility.jpg')),
     user_id: 3
   }
 ])
