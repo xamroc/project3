@@ -97,21 +97,25 @@ $ ->
         $('#toolModal').foundation('reveal','close')
 
   $('#toolModal').on 'submit', '#edittool-form', (e) ->
-    e.preventDefault()
+    toolId = this.dataset.id
+    input_name = $('#form-tool-name').val()
+    $("#toolId-#{toolId}").html(input_name)
+    successMessage()
+    # e.preventDefault()
 
-    userId = $(@).data().userid
-    tool = $(@).serializeJSON()
+    # userId = $(@).data().userid
+    # tool = $(@).serializeJSON()
 
-    $.ajax "/api/users/#{userId}/tools/#{tool['tool']['id']}",
-      type: 'PATCH'
-      contentType: 'application/json'
-      dataType: 'json'
-      data: JSON.stringify(tool)
-      success: (data) ->
-        successMessage()
-        toolsListRefresh(userId)
-      error: (x,y,z) ->
-        console.log x, y, z
+    # $.ajax "/api/users/#{userId}/tools/#{tool['tool']['id']}",
+    #   type: 'PATCH'
+    #   contentType: 'application/json'
+    #   dataType: 'json'
+    #   data: JSON.stringify(tool)
+    #   success: (data) ->
+    #     successMessage()
+    #     toolsListRefresh(userId)
+    #   error: (x,y,z) ->
+    #     console.log x, y, z
 
   $('#tlist').on 'click', (e) ->
     $.ajax
