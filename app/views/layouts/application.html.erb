@@ -21,7 +21,7 @@
           <ul class="right">
             <li><%= link_to("Login", login_url ) unless current_user %></li>
             <li><%= link_to("Sign Up", register_url ) unless current_user  %></li>
-            <li><%= link_to("PROFILE", "javascript:;", :id => "header-profile", :data => { :id => current_user.id }) if current_user %></li>
+            <li><%= link_to("PROFILE", "javascript:;", :id => "header-profile", :data => { :id => current_user.id }) if current_user and current_page?(:action => 'index')%></li>
             <li><%= link_to("Logout", logout_url ) if current_user  %></li>
           </ul>
         </section>

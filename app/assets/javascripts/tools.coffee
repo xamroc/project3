@@ -6,9 +6,6 @@ $ ->
       template = HandlebarsTemplates['tools/index'](data)
       $('#main').append(template)
 
-  $('#header-profile').on 'click', (e) ->
-    user_id = $(@).data('id')
-    loadTabs(user_id)
 
   loadTabs = (user_id) ->
     $.ajax
@@ -24,6 +21,12 @@ $ ->
         loadToolsList(data)
 
         $('#main').foundation()
+
+  $('#header-profile').on 'click', (e) ->
+    console.log "header clicked"
+    user_id = $(@).data('id')
+    console.log user_id
+    loadTabs(user_id)
 
   loadUserProfile = (data) ->
     userProfileTemplate = HandlebarsTemplates['users/profile_details'](data)

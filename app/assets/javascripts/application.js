@@ -15,6 +15,7 @@
 //= require jquery.serializeJSON.min
 //= require user
 //= require tools
+//= require site
 //= require handlebars.runtime
 //= require_tree ./templates
 //= require ./vendor/noty/packaged/jquery.noty.packaged
