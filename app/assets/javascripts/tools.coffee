@@ -82,7 +82,7 @@ $ ->
         newTemplate = HandlebarsTemplates['tools/tool_details'](data)
         $('#toolModal').html("")
         $('#toolModal').append(newTemplate)
-        $('#toolModal').foundation('reveal','open')
+        $('#toolModal').foundation('reveal').foundation('reveal','open')
 
   successMessage = () ->
     $('#toolModal').html("")
