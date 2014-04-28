@@ -29,7 +29,7 @@ class ToolpicUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process :resize_to_fill => [323, 202]
+  process :resize_to_fill => [364, 270]
 
   # Create different versions of your uploaded files:
   # version :thumb do
