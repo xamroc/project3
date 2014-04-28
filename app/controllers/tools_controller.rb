@@ -33,7 +33,7 @@ class ToolsController < ApplicationController
     user = current_user
     tool.owner = user
     if tool.save
-      head :created
+      redirect_to root_url
     else
       head :unprocessable_entity
     end
