@@ -37,10 +37,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to root_url
-      # head :no_content
+      head :no_content
     else
-      render :edit
       head :unprocessable_entity
     end
   end
