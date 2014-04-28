@@ -71,6 +71,27 @@ Tool.create ([
     description: "The weapons systems of the suit have changed over the years, but Iron Man's standard offensive weapons have always been the repulsor rays that are fired from the palms of his gauntlets",
     avatar: File.open(File.join(Rails.root, '/public/images/armor.jpeg')),
     user_id: 1
+  },
+  {
+    name: "Web Shooters [Spiderman]",
+    category: "Sporting Equipment",
+    description: "The wrist-mounted devices fire an adhesive webbing through a threaded adjustable nozzle.",
+    avatar: File.open(File.join(Rails.root, '/public/images/web-shooter.jpg')),
+    user_id: 2
+  },
+  {
+    name: "Lego",
+    category: "Weapon of Mass Destruction",
+    description: "Land mine.",
+    avatar: File.open(File.join(Rails.root, '/public/images/lego-brick.jpg')),
+    user_id: 2
+  },
+  {
+    name: "Ring of Power",
+    category: "Tools & Garden",
+    description: "One Ring to rule them all.",
+    avatar: File.open(File.join(Rails.root, '/public/images/power-ring.jpg')),
+    user_id: 3
   }
 ])
 
