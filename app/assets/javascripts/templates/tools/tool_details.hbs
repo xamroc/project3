@@ -4,22 +4,35 @@
       <h1>{{name}}</h1>
     </div>
     <div class="line-separator"></div>
-    <div class="small-4 large-4 columns">
+    <div class="small-5 large-5 columns">
       <div id="modal-img">
         <img src="{{avatar/avatar/url}}">
-        <p>{{links/user/name}}</p>
-        <p>{{links/user/email}}</p>
-        <p>{{links/user/mobile_number}}</p>
+
       </div>
     </div>
-    <div class="small-8 large-8 columns">
+    <div class="small-7 large-7 columns" id="modal-des">
       <p>{{description}}</p>
-      <p>{{category}}</p>
+      <p><span class="bold"> Category : </span> {{category}}
+      <span id="right-align"> <span class="bold">Status :</span>
       {{#if availability}}
-        <p class="available">Available!</p>
+        <span class="available">Available!</span>
       {{else}}
-        <p class="unavailable">Not Available.</p>
+        <span class="unavailable">Not Available.</span>
       {{/if}}
+        </span></p>
     </div>
+  </div>
+  <div id="green-bg" class="small-12 large-12 columns">
+      <div class="owner-des">
+        <h2>Meet the Owner {{links/user/name}}</h2>
+          <div class="small-2 large-2 columns">
+            <img src="{{links/user/avatar/url}}" id="img-circle-des" >
+          </div>
+          <div class="small-9 large-9 columns">
+            <p class="owner-id-des">{{links/user/description}}</p>
+            <p>{{links/user/email}}
+            <span>{{links/user/mobile_number}}</span></p>
+          </div>
+      </div>
   </div>
 {{/each}}
