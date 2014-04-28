@@ -32,6 +32,7 @@
 @import url(http://fonts.googleapis.com/css?family=Gochi+Hand);
 @import url(http://fonts.googleapis.com/css?family=Oswald);
 @import url(http://fonts.googleapis.com/css?family=Anton);
+@import url(http://fonts.googleapis.com/css?family=Noto+Sans);
 
 body {
   font-family: 'Oswald';
@@ -48,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  font-family: 'Anton';
+  font-family: 'Noto Sans', 'sans-serif';
   font-size: 22px;
 }
 
@@ -110,7 +111,7 @@ ul {
   max-height: 75%;
   max-width: 75%;
   border-radius: 10px;
-  border: 4px solid hsla(150.8, 49.8%, 45.3%, 1.0);
+  border: 4px solid hsla(0, 0%, 50%, 1);
   box-shadow: 3px 3px 3px hsla(57, 39%, 30%, 1.0);
   cursor: hand;
   cursor: pointer;
@@ -161,6 +162,7 @@ ul {
 
 .tiny {
   margin-top: 20px;
+  background: hsla(150.8,49.8%,45.3%,1.0);
 }
 
 /* Search Bar CSS */
