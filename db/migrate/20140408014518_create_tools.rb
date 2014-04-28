@@ -4,7 +4,7 @@ class CreateTools < ActiveRecord::Migration
       t.string :name
       t.string :category
       t.text   :description
-      t.string :avatar
+      t.text   :avatar
       t.belongs_to :user, index: true
       t.boolean :availability, default: false
 
