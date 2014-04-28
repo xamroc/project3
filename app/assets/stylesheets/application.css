@@ -354,7 +354,7 @@ ul {
   font-weight: bold;
 }
 
-#right-align {
+.right-align {
   margin-left: 20%;
 }
 
@@ -363,6 +363,7 @@ ul {
   border-radius: 10px;
   margin-left: 15px;
   margin-right: 60px;
+  width: 94%;
 }
 
 #green-bg h2 {
@@ -393,3 +394,4 @@ ul {
 
 .owner-id-des {
   padding-left: 20px;
+  color: white;
