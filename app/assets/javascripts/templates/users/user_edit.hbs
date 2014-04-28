@@ -26,7 +26,7 @@
         <%= f.label :mobile_number, class: "sr-only" %>
         <%= f.text_field :mobile_number, class: "form-control", placeholder: "Mobile_number" %>
       <div class="large-12 columns">
-        <%= f.submit "Edit", class: "btn" %>
+        <%= f.submit "Edit", class: "btn", root_url %>
       </div>
 
     </fieldset>
@@ -34,6 +34,6 @@
 
 </div>
 
-<%= link_to 'Back', users_url %>
+<%= link_to 'Back', root_url %>
 
 {{/each}}
