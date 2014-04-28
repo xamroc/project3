@@ -104,6 +104,20 @@ ul {
   max-width: 95%;
 }
 
+#userblock {
+  width: 100%;
+  float: left;
+  margin: 10px 10px 10px 10px;
+  max-height: 75%;
+  max-width: 75%;
+  border-radius: 10px;
+  border: 4px solid hsla(0, 0%, 50%, 1);
+  box-shadow: 3px 3px 3px hsla(57, 39%, 30%, 1.0);
+  cursor: hand;
+  cursor: pointer;
+  background: hsla(0, 0%, 100%, 0.6);
+}
+
 .tool-item {
   width: 22%;
   float: left;
