@@ -23,6 +23,21 @@
 
 */
 
+@import url(http://fonts.googleapis.com/css?family=Gochi+Hand);
+
+body {
+  font-family: 'Gochi Hand';
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Gochi Hand';
+}
+
+#logo h1 {
+  font-weight: 600;
+  font-size: 3rem;
+}
+
 #wrap {
   min-height: 100%;
   height: auto !important;
@@ -32,11 +47,16 @@
 }
 
 .top-bar {
-  padding: 0 5px 0 5px;
+  padding: 10px;
+  height: auto;
 }
 
 .header-bar {
   padding-bottom: 5px;
+}
+
+#main-section {
+  padding-top: 30px;
 }
 
 /*.right {
