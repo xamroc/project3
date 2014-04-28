@@ -14,74 +14,63 @@ User.create ([
   {
     email: "cvetter34@gmail.com",
     password: "123",
-    password_confirmation: "123"
+    password_confirmation: "123",
+    name: "Christian",
+    description: "I have so many things that I have never used before, it would be really cool to be able to share it with someone that needs them.",
+    avatar: File.open(File.join(Rails.root, '/public/images/christian.jpg')),
+    facebook: "cvetter34",
+    mobile_number: "+852 5374 3892"
   },
   {
     email: "marco@gmail.com",
     password: "123",
-    password_confirmation: "123"
+    password_confirmation: "123",
+    name: "Marco",
+    description: "My hobby is outdoor camping, and I keep almost all equipment that could make outdoor camping a much more fun endeavor. Talk to me if you want equipment for your next outdoor camping.",
+    avatar: File.open(File.join(Rails.root, '/public/images/marco.jpg')),
+    facebook: "marco",
+    mobile_number: "+852 5374 3892"
   },
   {
     email: "julie@gmail.com",
     password: "123",
-    password_confirmation: "123"
+    password_confirmation: "123",
+    name: "Julie",
+    description: "It's always fun to have BBQ party in your own premise. Me and my family have a BBQ party only once per month and if anyone else would like to use the equipment, ping me.",
+    avatar: File.open(File.join(Rails.root, '/public/images/julie.jpg')),
+    facebook: "jstag",
+    mobile_number: "+852 5374 3892"
   }
 ])
 
 Tool.create ([
   {
-    name: "Hammer",
+    name: "Shield [Captain America]",
     category: "Tools & Garden",
-    description: "It fell from Asgard.",
-    user_id: 1,
+    description: "The primary defensive and offensive piece of equipment used by the Marvel Comics superhero Captain America; he is seldom seen without it.",
+    avatar: File.open(File.join(Rails.root, '/public/images/shield.jpg')),
+    user_id: 1
   },
   {
-    name: "Shovel",
+    name: "Hammer [Thor]",
     category: "Tools & Garden",
-    description: "This is used for digging out corpses.",
-    user_id: 2,
+    description: "The original of the live-action interpretation of Thor's iconic mjolnir as seen in The Avengers.",
+    avatar: File.open(File.join(Rails.root, '/public/images/hammer.jpg')),
+    user_id: 2
   },
   {
-    name: "Ball",
+    name: "Bow [Hawkeye]",
     category: "Sporting Equipment",
-    description: "Target: Julie.",
-    user_id: 3,
+    description: "Used by Agent Clint Barton as Hawkeye in The Avengers. It has an attachable quiver of five arrows and uses a fast-retracting bowstring.",
+    avatar: File.open(File.join(Rails.root, '/public/images/bow.jpg')),
+    user_id: 3
   },
   {
-    name: "LOLBall",
+    name: "Armor [Iron Man]",
     category: "Sporting Equipment",
-    description: "Target: Julie.",
-    user_id: 3,
-  },
-  {
-    name: "SphereBall",
-    category: "Sporting Equipment",
-    description: "Target: Julie.",
-    user_id: 3,
-  },
-  {
-    name: "SquareBall",
-    category: "Sporting Equipment",
-    description: "Target: Julie.",
-    user_id: 3,
-  },
-  {
-    name: "FootBall",
-    category: "Sporting Equipment",
-    description: "Target: Julie.",
-    user_id: 3,
-  },
-  {
-    name: "WtfBall",
-    category: "Sporting Equipment",
-    description: "Target: Julie.",
-    user_id: 3,
-  },
-  {
-    name: "CannonBallz",
-    category: "Sporting Equipment",
-    description: "Target: Julie.",
-    user_id: 3,
+    description: "The weapons systems of the suit have changed over the years, but Iron Man's standard offensive weapons have always been the repulsor rays that are fired from the palms of his gauntlets",
+    avatar: File.open(File.join(Rails.root, '/public/images/armor.jpeg')),
+    user_id: 1
   }
 ])
 
