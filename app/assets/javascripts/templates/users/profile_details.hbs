@@ -4,11 +4,36 @@
     <img src="{{avatar/avatar/url}}" class="img-circle-large" >
   </div>
   <div class="small-8 large-8 columns">
-    <p class="field" data-field="name" data-userId="{{id}}">{{name}}</p>
-    <p class="field" data-field="email" data-userId="{{id}}">{{email}}</p>
-    <p class="field" data-field="description" data-userId="{{id}}">{{description}}</p>
-    <p class="field" data-field="facebook" data-userId="{{id}}">{{facebook}}</p>
-    <p class="field" data-field="mobile_number" data-userId="{{id}}">{{mobile_number}}</p>
+    {{#if name }}
+      <p class="field" data-field="name" data-userId="{{id}}">{{name}}</p>
+    {{else}}
+      <p class="field" data-field="name" data-userId="{{id}}">Name</p>
+    {{/if}}
+
+    {{#if email }}
+      <p class="field" data-field="email" data-userId="{{id}}">{{email}}</p>
+    {{else}}
+      <p class="field" data-field="email" data-userId="{{id}}">Email</p>
+    {{/if}}
+
+    {{#if description }}
+      <p class="field" data-field="description" data-userId="{{id}}">{{description}}</p>
+    {{else}}
+      <p class="field" data-field="description" data-userId="{{id}}">Description</p>
+    {{/if}}
+
+    {{#if facebook }}
+      <p class="field" data-field="facebook" data-userId="{{id}}">{{facebook}}</p>
+    {{else}}
+      <p class="field" data-field="facebook" data-userId="{{id}}">Facebook</p>
+    {{/if}}
+
+    {{#if mobile_number }}
+      <p class="field" data-field="mobile_number" data-userId="{{id}}">{{mobile_number}}</p>
+    {{else}}
+      <p class="field" data-field="mobile_number" data-userId="{{id}}">Mobile Number</p>
+    {{/if}}
+
   </div>
 </div>
 {{/each}}
