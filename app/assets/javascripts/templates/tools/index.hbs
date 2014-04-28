@@ -1,15 +1,14 @@
 {{#each tools}}
   <div class="tool-item" data-id={{id}}>
-    <div class="hover-green">
+    <div>
       <img src="{{avatar/avatar/url}}" class="photo">
     </div>
       <div id="container-pin">
         <div>
-          <p class="pin-row">{{name}}</p>
+          <h2 class="pin-row">{{name}}</h2>
         </div>
         <div class="pin-row">
-          <img src="{{links/user/avatar/url}}" class="img-circle" >
-         {{!--  <p>{{links/user/name}}</p> --}}
+          <p><img src="{{links/user/avatar/url}}" class="img-circle" ><span class="padding-left">{{links/user/name}}</span></p>
         </div>
       </div>
   </div>
