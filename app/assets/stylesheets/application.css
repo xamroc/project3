@@ -125,6 +125,7 @@ ul {
   cursor: hand;
   cursor: pointer;
   background: hsla(0, 0%, 100%, 0.6);
+  padding-top: 20px;
 }
 
 .tool-item {
@@ -161,7 +162,17 @@ ul {
 
 .field {
   cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
 }
+
+.field:hover {
+  background: hsla(150.8,49.8%,45.3%,1.0);
+  color: white;
+  border-radius: 10px;
+  display: inline-block;
+}
+
 .img-circle {
   height: 40px;
   width: 40px;
@@ -171,12 +182,11 @@ ul {
 }
 
 .img-circle-large {
-  height: 120px;
-  width: 120px;
+  height: 300px;
   margin-bottom: 3%;
   border-radius: 100px;
   box-shadow: 0 10px 13px rgba(0, 0, 0, .4);
-  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
   border-top-right-radius: 9px;
 }
 
