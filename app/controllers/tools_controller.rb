@@ -35,7 +35,7 @@ class ToolsController < ApplicationController
     if tool.save
       redirect_to root_url
     else
-      head :unprocessable_entity
+      redirect_to newtool_url, alert: "Please fill in all fields."
     end
   end
 
