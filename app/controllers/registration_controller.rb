@@ -9,7 +9,7 @@ class RegistrationController < ApplicationController
     if @user.save
       log_user_in( @user, "You are now logged in." )
     else
-      flash.now[:alert] = "Passwords don't match."
+      flash.now[:alert] = "Please fill in all required fields."
       render :new
     end
   end

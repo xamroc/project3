@@ -1,5 +1,5 @@
 <%= form_for :user, url: login_url, method: :post, html: { id: "loginform" } do |f| %>
-  <fieldset>
+  <fieldset class="login-form">
     <legend>Please sign in</legend>
         <%= f.label :email %>
         <%= f.text_field :email, placeholder: "Email address" %>

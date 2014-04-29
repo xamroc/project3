@@ -38,13 +38,15 @@ ActiveRecord::Schema.define(version: 20140428032241) do
   create_table "tools", force: true do |t|
     t.string   "name"
     t.string   "category"
-    t.string   "description"
-    t.string   "avatar"
+    t.text     "description"
+    t.text     "avatar"
     t.integer  "user_id"
     t.boolean  "availability", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tools", ["user_id"], name: "index_tools_on_user_id", using: :btree
 
   create_table "transactions", force: true do |t|
     t.integer  "user_id"
@@ -56,17 +58,25 @@ ActiveRecord::Schema.define(version: 20140428032241) do
     t.datetime "updated_at"
   end
 
+  add_index "transactions", ["tool_id"], name: "index_transactions_on_tool_id", using: :btree
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password"
     t.string   "password_confirmation"
     t.string   "salt"
     t.string   "fish"
-    t.string   "name"
-    t.string   "description"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "description"
     t.string   "avatar"
     t.string   "facebook"
     t.string   "mobile_number"
+    t.string   "street_address2"
+    t.string   "street_address1"
+    t.string   "city"
+    t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

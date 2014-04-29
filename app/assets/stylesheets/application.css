@@ -520,3 +520,27 @@ input[type="text"] {
   margin-left: 30px;
   margin-bottom: 40px;
 }
+
+fieldset legend {
+  background: none;
+  font-size: 30px;
+  font-family: 'Gochi Hand';
+}
+
+label {
+  font-family: 'Noto Sans', 'sans-serif';
+  font-size: 22px;
+}
+
+input[type="submit"] {
+  background: hsla(150.8,49.8%,45.3%,1.0);
+  border-radius: 10px;
+  color: white;
+  font-size: 28px;
+  font-family: 'Gochi Hand';
+}
+
+.login-form {
+  width: 30%;
+  margin-left: 35%;
+}
