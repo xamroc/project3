@@ -491,6 +491,7 @@ ul {
 
 .tabs {
   width: 87%;
+  margin-left: 50%;
 }
 
 input[type="text"] {
