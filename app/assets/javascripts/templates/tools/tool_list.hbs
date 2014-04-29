@@ -1,6 +1,8 @@
+<a href="/newtool" class="button new">Create New Tool</a>
+
 {{#each users}}
   {{#each links/tools}}
-  <div class="row">
+  <div class="small-12 large-12 columns">
     <div class="small-3 large-3 columns">
       <p class="edit-tool-item" id="toolId-{{id}}" data-id="{{id}}">{{name}}</p>
     </div>
@@ -14,4 +16,3 @@
   {{/each}}
 {{/each}}
 
-<a href="/newtool" class="tiny button">New Tool</a>
