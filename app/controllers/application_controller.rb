@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def log_user_out
     session[:user_id] = nil
-    redirect_to login_url, alert: "You've successfully logged out."
+    redirect_to login_url, notice: "You've successfully logged out."
   end
 
   private

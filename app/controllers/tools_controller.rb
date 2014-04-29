@@ -33,7 +33,7 @@ class ToolsController < ApplicationController
     user = current_user
     tool.owner = user
     if tool.save
-      redirect_to root_url
+      redirect_to root_url, notice: "Tool successfully created."
     else
       redirect_to newtool_url, alert: "Please fill in all fields."
     end
