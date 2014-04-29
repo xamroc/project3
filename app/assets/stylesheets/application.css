@@ -63,10 +63,17 @@ h1, h2, h3, h4, h5, h6 {
 p {
   font-family: 'Noto Sans', 'sans-serif';
   font-size: 22px;
+  color: hsla(11, 1%, 28%, 1.0);
 }
 
 #logo h1 {
   font-size: 3rem;
+}
+
+#container-pin h2 {
+  font-family: 'Noto Sans', 'sans-serif';
+  font-size: 23px;
+  color: hsla(11, 1%, 28%, 1.0);
 }
 
 #wrap {
@@ -85,6 +92,7 @@ p {
 
 #topnav a{
   background: hsla(0, 100%, 0%, 1.0);
+  font-family: 'Gochi Hand';
 }
 
 .header-bar {
@@ -325,6 +333,7 @@ ul {
   box-shadow: 3px 3px 3px hsla(57, 39%, 30%, 1.0);
   /*box-shadow: 0 0 10px hsla(150.8,49.8%,45.3%,1.0);*/
   border-radius: 10px;
+  padding-bottom: 30px;
 }
 
 .reveal-modal-bg {
@@ -399,6 +408,9 @@ ul {
 
 .owner-id-des {
   padding-left: 20px;
+}
+
+.owner-id-des p {
   color: white;
 }
 
@@ -428,4 +440,17 @@ ul {
        -o-transform: rotate(-10deg);
       -ms-transform: rotate(-10deg);
           transform: rotate(-10deg);
+}
+
+.padding-left {
+  padding-left: 20px;
+  color: hsla(11, 1%, 28%, 1.0);
+}
+
+.top-bar-section li {
+  font-family: 'Gochi Hand';
+}
+
+.top-bar-section ul li>a {
+  font-size: 22px;
 }
