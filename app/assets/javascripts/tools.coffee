@@ -104,7 +104,14 @@ $ ->
     input_name = $('#form-tool-name').val()
     $("#toolId-#{toolId}").html(input_name)
     successMessage()
-    # e.preventDefault()
+
+  $('#main').on 'click', '.delete-tool-btn', (e) ->
+    toolId = this.dataset.id
+    $.ajax
+      type: 'DELETE'
+      url:  '/api/tools/' + toolId
+      success: (data, textStatus, jqXHR) ->
+        $("#tool-row-item#{toolId}").remove()    # e.preventDefault()
 
     # userId = $(@).data().userid
     # tool = $(@).serializeJSON()
