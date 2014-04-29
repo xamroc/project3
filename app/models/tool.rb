@@ -8,7 +8,7 @@ class Tool < ActiveRecord::Base
   has_many :transactions
   has_many :users, through: :transactions
 
-  validates :name, :category, :description, presence: true
+  validates :name, :category, :description, :avatar, presence: true
   mount_uploader :avatar, ToolpicUploader
 
   attr_accessor :avatar_cache
