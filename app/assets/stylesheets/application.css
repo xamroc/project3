@@ -125,11 +125,10 @@ ul {
 }
 
 #userblock {
-  width: 100%;
+  width: 142%;
   margin-top: 20px;
-  margin-left: 20%;
   border-radius: 10px;
-  border: 4px solid hsla(0, 0%, 50%, 1);
+  border: 4px solid hsla(0, 0%, 100%, 0.6);
   box-shadow: 3px 3px 3px hsla(57, 39%, 30%, 1.0);
   cursor: hand;
   cursor: pointer;
@@ -143,7 +142,7 @@ ul {
   max-height: 75%;
   max-width: 75%;
   border-radius: 10px;
-  border: 4px solid hsla(0, 0%, 50%, 1);
+  border: 4px solid hsla(0, 0%, 100%, 0.6);
   box-shadow: 0 3px 12px rgba(0,0,0,0.25);
   cursor: hand;
   cursor: pointer;
@@ -328,7 +327,7 @@ ul {
 .reveal-modal {
   padding: 0.5rem;
 /*  border: solid 10px hsla(150.8,49.8%,45.3%,1.0);*/
-  border: 4px solid hsla(0, 0%, 50%, 1);
+  border: 4px solid hsla(0, 0%, 100%, 0.6);
   -webkit-box-shadow: 0 0 10px hsla(150.8,49.8%,45.3%,1.0);
   box-shadow: 3px 3px 3px hsla(57, 39%, 30%, 1.0);
   /*box-shadow: 0 0 10px hsla(150.8,49.8%,45.3%,1.0);*/
@@ -453,4 +452,27 @@ ul {
 
 .top-bar-section ul li>a {
   font-size: 22px;
+}
+
+.tabs dd.active a {
+  background: hsla(150.8,49.8%,45.3%,1.0);
+  border-radius: 10px;
+  color: white;
+}
+
+.tabs dd>a {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: hsla(0, 0%, 50%, 1);
+  background: hsla(0, 0%, 100%, 0.6);
+  width: 250px;
+  font-size: 28px;
+  font-family: 'Gochi Hand';
+  text-align: center;
+  border: 4px solid hsla(0, 0%, 100%, 0.6);
+}
+
+.tabs {
+  width: 100%;
+  margin-left: 43%;
 }
