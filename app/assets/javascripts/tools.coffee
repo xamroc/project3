@@ -107,11 +107,14 @@ $ ->
 
   $('#main').on 'click', '.delete-tool-btn', (e) ->
     toolId = this.dataset.id
-    $.ajax
-      type: 'DELETE'
-      url:  '/api/tools/' + toolId
-      success: (data, textStatus, jqXHR) ->
-        $("#tool-row-item#{toolId}").remove()    # e.preventDefault()
+    x = confirm("Are you sure?")
+    if x == true
+      $.ajax
+        type: 'DELETE'
+        url:  '/api/tools/' + toolId
+        success: (data, textStatus, jqXHR) ->
+          $("#tool-row-item#{toolId}").remove()    # e.preventDefault()
+
 
     # userId = $(@).data().userid
     # tool = $(@).serializeJSON()
@@ -132,6 +135,5 @@ $ ->
       type: 'GET'
       url:  '/api/users/'
       success: (data, textStatus, jqXHR) ->
-        console.log data
         toolsList = HandlebarsTemplates['users/index'](data)
         $('#tlist').append(toolsList)
