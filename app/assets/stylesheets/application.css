@@ -191,6 +191,7 @@ ul {
 
 .img-circle-large {
   height: 300px;
+  width: auto;
   margin-bottom: 3%;
   border-radius: 100px;
   box-shadow: 0 10px 13px rgba(0, 0, 0, .4);
@@ -276,7 +277,8 @@ ul {
 /* Toggle switch CSS */
 
 .onoffswitch {
-    position: relative; width: 90px;
+    position: relative;
+/*    width: 90px;*/
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 .onoffswitch-checkbox {
@@ -294,24 +296,25 @@ ul {
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
     float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    font-size: 20px; color: white;
+    font-family: 'Gochi Hand'; font-weight: bold;
     -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 .onoffswitch-inner:before {
     content: "Available";
-    padding: 0 0 0 9%;
-    background-color: hsla(93, 65%, 39%, 1); color: #FFFFFF;
+    background-color: hsla(150.8,49.8%,45.3%,1.0); color: #FFFFFF;
+    text-align: center;
 }
 .onoffswitch-inner:after {
     content: "Unavailable";
     padding: 0 10px 0 10px;
     background-color: hsla(359, 86%, 42%, 1); color: #FFFFFF;
-    text-align: right;
+    text-align: center;
 }
 .onoffswitch-switch {
     width: 18px; margin: 6px;
     background: #FFFFFF;
-    border: 2px solid #999999;
+    border: 1px solid hsla(0, 0%, 100%, 0.6);
     border-radius: 20px;
     position: absolute; top: 0; bottom: 0; right: 56px;
     -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
@@ -371,6 +374,10 @@ ul {
 
 .photo {
   width: 100%;
+}
+
+.photo-list {
+  width: 25px;
 }
 
 .bold {
@@ -483,10 +490,19 @@ ul {
 }
 
 .tabs {
-  width: 100%;
-  margin-left: 43%;
+  width: 87%;
 }
 
 input[type="text"] {
   font-size: 21px;
+}
+
+.button.new {
+  background: hsla(150.8,49.8%,45.3%,1.0);
+  border-radius: 10px;
+  color: white;
+  font-size: 28px;
+  font-family: 'Gochi Hand';
+  margin-left: 30px;
+  margin-bottom: 40px;
 }
