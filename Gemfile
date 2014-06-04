@@ -33,3 +33,5 @@ group :test do
 end
 
 gem 'bcrypt'
+
+gem 'rails_12factor', group: :production
