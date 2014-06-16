@@ -1,5 +1,3 @@
-require 'pry'
-
 class TransactionsController < ApplicationController
 
   respond_to :json

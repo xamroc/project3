@@ -1,4 +1,3 @@
-'require pry'
 class MessagesController < ApplicationController
 
   before_filter :set_user

@@ -1,5 +1,3 @@
-require 'pry'
-
 class ToolsController < ApplicationController
 
   respond_to :json
@@ -40,7 +38,6 @@ class ToolsController < ApplicationController
   end
 
   def edit
-    # binding.pry
     # user = current_user
     # tool.owner = user
   end
